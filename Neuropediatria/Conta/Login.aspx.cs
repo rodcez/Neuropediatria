@@ -100,6 +100,7 @@ namespace Neuropediatria.Login
 
                 modulos = sqlReader["dsModulos"].ToString().Split(',').ToList();
 
+                appSett.Set("Perfil", sqlReader["dsPerfil"].ToString());
                 appSett.Set("IdUsuario", sqlReader["idUsuario"].ToString());
                 appSett.Set("chaveMD5", chaveMD5);
                 appSett.Set("Relatorios", modulos.Exists(x => x.Contains("relatorios")).ToString());

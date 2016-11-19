@@ -21,15 +21,15 @@ namespace Neuropediatria.Pacientes
             set { ViewState["idPacienteVS"] = value; }
         }
 
-        public List<string> listaFichaAtivaVS
+        public List<Paciente> listaCSV
         {
             get {
-                if ((List<string>)ViewState["listaFichaAtivaVS"] == null)
-                    ViewState["listaFichaAtivaVS"] = new List<string>();
+                if ((List<Paciente>)ViewState["listaCSV"] == null)
+                    ViewState["listaCSV"] = new List<Paciente>();
 
-                return (List<string>)(ViewState["listaFichaAtivaVS"]);
+                return (List<Paciente>)(ViewState["listaCSV"]);
             }
-            set { ViewState["idPacienteVS"] = value; }
+            set { ViewState["listaCSV"] = value; }
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -38,7 +38,6 @@ namespace Neuropediatria.Pacientes
             /*
              TODO
 
-            Colocar uma Flag pra ativar ou não todas as fichas [Ativa e não ativa]
             Ver para colocar o botão dar alta e pensar no esquema de ativar e desativar paciente
             Mudar o excluir para "Candidato" e trocar o nome da coluna para "Tranformar em"   
              
@@ -113,6 +112,7 @@ namespace Neuropediatria.Pacientes
                     listaPaciente = listaPacienteTemp;
                 }
 
+                listaCSV = listaPaciente;
                 gvPacientes.DataSource = listaPaciente;
                 gvPacientes.DataBind();
 
@@ -155,6 +155,15 @@ namespace Neuropediatria.Pacientes
 
                 verFichaCandidato(idPacienteVS);
             }
+            else if (e.CommandName == "excluirPaciente")
+            {
+                ExcluirPaciente();
+            }
+        }
+
+        private void ExcluirPaciente()
+        {
+            
         }
 
         private void visualizarCandidato(int idCandidato)
@@ -207,46 +216,30 @@ namespace Neuropediatria.Pacientes
         {
             Response.Clear();
             Response.Buffer = true;
-            Response.AddHeader("content-disposition", "attachment;filename=Employee.csv");
+            Response.AddHeader("content-disposition",
+             "attachment;filename=ListaPacientes.csv");
             Response.Charset = "";
             Response.ContentType = "application/text";
+
             gvPacientes.AllowPaging = false;
             gvPacientes.DataBind();
 
-            StringBuilder columnbind = new StringBuilder();
-            for (int k = 0; k < gvPacientes.Columns.Count; k++)
-            {
+            StringBuilder sb = new StringBuilder();
 
-                columnbind.Append(gvPacientes.Columns[k].HeaderText + ',');
+            sb.Append("Ativo, Nome Candidato, Data de Nascimento ,Patologia, Nome Estagiario, Data de Alocacao");
+            sb.Append("\r\n");
+
+            foreach (var item in listaCSV)
+            {
+                sb.Append(string.Format("{0}, {1}, {2}, {3}, {4}, {5}", 
+                    item.ativo, item.dsNome, item.dtNascimento, item.dsPatologia, item.dsNomeAluno, item.dtAlocacao));
+                sb.Append("\r\n");
             }
 
-            columnbind.Append("\r\n");
-            for (int i = 0; i < gvPacientes.Rows.Count; i++)
-            {
-                for (int k = 0; k < gvPacientes.Columns.Count; k++)
-                {
-
-                    columnbind.Append(gvPacientes.Rows[i].Cells[k].Text + ',');
-                }
-
-                columnbind.Append("\r\n");
-            }
-            Response.Output.Write(columnbind.ToString());
+            Response.Output.Write(sb.ToString());
             Response.Flush();
             Response.End();
 
-        }
-
-        class Paciente
-        {
-            public string idCandidato { get; set; }
-            public string idFicha { get; set; }
-            public bool ativo { get; set; }
-            public string dsNome { get; set; }
-            public DateTime dtNascimento { get; set; }
-            public string dsPatologia { get; set; }
-            public string dsNomeAluno { get; set; }
-            public string dtAlocacao { get; set; }
         }
     }
 }
