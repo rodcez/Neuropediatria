@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Neuropediatria.Controle;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Web.UI;
@@ -7,7 +8,7 @@ using Utils;
 
 namespace Neuropediatria.Conta
 {
-    public partial class NovoUsuario : Page
+    public partial class NovoUsuario : ControlePerfil
     {
         public int idUsuarioVS
         {
@@ -41,6 +42,8 @@ namespace Neuropediatria.Conta
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Validacoes("Usuarios");
+            
             cabecalho.Text = "<h1>Cadastro de Usuario</h1>";
 
             if (IsPostBack) return;
@@ -229,11 +232,13 @@ namespace Neuropediatria.Conta
             switch (ddPerfil.SelectedValue)
             {
                 case "admin":
-                    modulos = "usuarios, candidatos, pacientes, relatorios, meusPacientes";
+                    modulos = "usuarios, candidatos, pacientes, meusPacientes";
+                    //modulos = "usuarios, candidatos, pacientes, relatorios, meusPacientes";
                     break;
 
                 case "coordenador":
-                    modulos = "candidatos, pacientes, relatorios";
+                    modulos = "candidatos, pacientes";
+                    //modulos = "candidatos, pacientes, relatorios";
                     break;
 
                 case "auxiliar":

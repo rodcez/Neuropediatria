@@ -17,7 +17,8 @@ namespace Neuropediatria.Controle
             var appSett = ConfigurationManager.AppSettings;
             Dictionary<string, bool> modulos = new Dictionary<string, bool>();
 
-            modulos.Add("Relatorios", Convert.ToBoolean(appSett["Relatorios"]));
+            modulos.Add("Relatorios", false);
+            //modulos.Add("Relatorios", Convert.ToBoolean(appSett["Relatorios"]));
             modulos.Add("Candidatos", Convert.ToBoolean(appSett["Candidatos"]));
             modulos.Add("Pacientes", Convert.ToBoolean(appSett["Pacientes"]));
             modulos.Add("MeusPacientes", Convert.ToBoolean(appSett["MeusPacientes"]));

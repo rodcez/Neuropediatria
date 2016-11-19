@@ -70,7 +70,7 @@
                             <asp:CheckBox Text="Candidatos" runat="server" Checked="true"/>
                             <asp:CheckBox Text="Pacientes" runat="server" Checked="true" CssClass="separar"/>
                             <asp:CheckBox Text="Meus Pacientes" runat="server" Checked="true" CssClass="separar"/>
-                            <asp:CheckBox Text="Relatorios" runat="server" Checked="true" CssClass="separar"/>
+                            <%--<asp:CheckBox Text="Relatorios" runat="server" Checked="true" CssClass="separar"/>--%>
                             <asp:CheckBox Text="Usuarios" runat="server" Checked="true" CssClass="separar"/>
                         </asp:TableCell>
                     </asp:TableRow>
@@ -90,7 +90,7 @@
                         <asp:TableCell Enabled="false">
                             <asp:CheckBox Text="Candidatos" runat="server" Checked="true"/>
                             <asp:CheckBox Text="Pacientes" runat="server" Checked="true" CssClass="separar"/>
-                            <asp:CheckBox Text="Relatorios" runat="server" Checked="true" CssClass="separar"/>
+                            <%--<asp:CheckBox Text="Relatorios" runat="server" Checked="true" CssClass="separar"/>--%>
                         </asp:TableCell>
                         <asp:TableCell Width="60px"> </asp:TableCell>
                         <asp:TableCell>

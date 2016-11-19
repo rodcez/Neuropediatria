@@ -25,7 +25,6 @@
         }
     </style>
 
-
     <form id="form1" runat="server">
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
@@ -45,7 +44,7 @@
                         <li><a id="navPacientes" runat="server" href="~/Pacientes/ListaPacientes.aspx">Pacientes</a></li>
                         <li><a id="navMeusPacientes" visible="false" runat="server" href="~/MeusPacientes">Meus Pacientes</a></li>
                         <li><a id="navUsuarios" visible="false" runat="server" href="~/Conta/ListaUsuarios.aspx">Usuarios</a></li>
-                        <li><a id="navLogin" runat="server" href="~/Conta/login.aspx" visible="true">Login</a></li>
+                        <li><a id="navLogin" runat="server" href="~/Conta/login.aspx" visible="false">Login</a></li>
                         <li><a id="navSair" runat="server" href="~/Conta/login.aspx?msg=3" visible="false">Sair</a></li>
                     </ul>
                 </div>
