@@ -7,6 +7,13 @@
     <h2 style="text-align: center;">Usuarios</h2>
     <hr />
     
+    <div class="pull-left">
+        Mostrar somente fichas ativas: 
+        <asp:CheckBox ID="visuTodos" runat="server" OnCheckedChanged="visuTodos_CheckedChanged" AutoPostBack="true"/>
+        <br />
+        <asp:Button ID="btExportar" Visible="false" runat="server" CssClass="btn btn-warning" Text="Exportar Lista" OnClick="btExportar_Click"/>
+    </div>
+    
     <div class="pull-right">
         <h5>Ordenação: </h5>
 

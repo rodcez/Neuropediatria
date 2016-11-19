@@ -22,13 +22,7 @@ namespace Neuropediatria.Candidatos
         {
             Validacoes("Candidatos");
             if (IsPostBack) return;
-
-            /* TODO
-             
-             * Fazer alguma verificação se ele já foi paciente 
-             
-             */
-
+            
             populaGrid();
         }
 

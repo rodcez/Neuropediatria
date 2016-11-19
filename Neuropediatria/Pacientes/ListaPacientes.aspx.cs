@@ -34,15 +34,6 @@ namespace Neuropediatria.Pacientes
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            /*
-             TODO
-
-            Ver para colocar o botão dar alta e pensar no esquema de ativar e desativar paciente
-            Mudar o excluir para "Candidato" e trocar o nome da coluna para "Tranformar em"   
-             
-             */
-
             Validacoes("Pacientes");
 
             var perfil = ConfigurationManager.AppSettings["Perfil"].ToString();
@@ -62,7 +53,7 @@ namespace Neuropediatria.Pacientes
                             "RIGHT JOIN tb_Candidato as C on(c.idCandidato = f.idPaciente) " +
                             "LEFT JOIN tb_Historico as H on(c.idHistorico = h.idHistorico) " +
                             "LEFT JOIN tb_Estagio as E on(c.idEstagio = E.idEstagio) " +
-                            "WHERE isPaciente = 1";
+                            "WHERE isPaciente = 1 AND C.ativo = 1";
 
                 if (!string.IsNullOrEmpty(ordem))
                     query += "order by " + ordem + " ASC";
@@ -157,13 +148,22 @@ namespace Neuropediatria.Pacientes
             }
             else if (e.CommandName == "excluirPaciente")
             {
-                ExcluirPaciente();
+                var index = int.Parse((string)e.CommandArgument);
+
+                idPacienteVS = int.Parse(gvPacientes.DataKeys[index]["idCandidato"].ToString());
+
+                ExcluirPaciente(idPacienteVS);
             }
         }
 
-        private void ExcluirPaciente()
+        private void ExcluirPaciente(int idCandidato)
         {
-            
+            var  result = ServicosDB.Instancia.ExecutarAtualizacao(string.Format("UPDATE tb_Candidato SET ativo = 0 WHERE idCandidato = {0}", idCandidato));
+            if(result > 0)
+                (Master as Site).mostrarSucesso("Paciente removido com sucesso!");
+            else
+                (Master as Site).mostrarErro("Não foi possível remover o paciente.");
+
         }
 
         private void visualizarCandidato(int idCandidato)
