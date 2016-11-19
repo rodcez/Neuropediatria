@@ -80,7 +80,7 @@ namespace Neuropediatria.Candidatos
 
             idCandidatoVS = id;
 
-            var query = string.Format("PopulaUsuario {0}", id);
+            var query = string.Format("PopulaCandidatoPaciente {0}", id);
 
             SqlDataReader sqlReader = ServicosDB.Instancia.ExecutarSelect(query);
 

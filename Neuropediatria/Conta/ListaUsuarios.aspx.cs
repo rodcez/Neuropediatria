@@ -28,7 +28,7 @@ namespace Neuropediatria.Conta
              */
         }
 
-        private void populaGrid(string ordem)
+        private void populaGrid(string ordem, bool regraAtivo = false)
         {
             try
             {
@@ -36,6 +36,9 @@ namespace Neuropediatria.Conta
                             "FROM tb_Usuario as U " +
                             "LEFT JOIN tb_Funcionario as F on(U.idUsuario = F.idUsuario) " +
                             "LEFT JOIN tb_Estagio as E on(U.idUsuario = E.idUsuario) ";
+
+                if(regraAtivo)
+                    query += "WHERE ativo = 1 ";
 
                 if (!string.IsNullOrEmpty(ordem))
                     query += "order by " + ordem + " ASC";

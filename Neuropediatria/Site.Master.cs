@@ -25,7 +25,6 @@ namespace Neuropediatria
 
             /* TODO
              
-             * Fazer a tela Relatórios
              * Fazer a tela Meus Pacientes 
                           
              */

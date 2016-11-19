@@ -15,13 +15,16 @@
 
     <div class="pull-left">
         Mostrar somente fichas ativas: 
-        <asp:CheckBox ID="visuTodos" runat="server"/>
+        <asp:CheckBox ID="visuTodos" runat="server" OnCheckedChanged="visuTodos_CheckedChanged" AutoPostBack="true"/>
+        <br />
+        <asp:Button ID="btExportar" Visible="false" runat="server" CssClass="btn btn-warning" Text="Exportar Lista" OnClick="btExportar_Click"/>
     </div>
 
     <div class="pull-right">
         <h5>Ordenação: </h5>
 
         <asp:DropDownList ID="ordenaLista" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ordenaLista_SelectedIndexChanged">
+            <asp:ListItem Text="Selecione..." Value="" />
             <asp:ListItem Text="Nome" Value="dsNomeAluno" />
             <asp:ListItem Text="Idade" Value="dtNascimento" />
             <asp:ListItem Text="Patologia" Value="dsPatologia" />
@@ -36,7 +39,7 @@
         OnRowDataBound="gvPacientes_RowDataBound" CssClass="table table-bordered">
         <RowStyle HorizontalAlign="Center" VerticalAlign="Middle" />
         <Columns>
-            <asp:BoundField HeaderText="Ativa" DataField="ativo"/>
+            <asp:BoundField HeaderText="Ativo" DataField="ativo"/>
             <asp:ButtonField CommandName="visuCandidato" ItemStyle-Width="130px"
                 HeaderText="Visualizar" Text="Visualizar" 
                 ControlStyle-CssClass="btn btn-primary" ItemStyle-HorizontalAlign="Center"/>            

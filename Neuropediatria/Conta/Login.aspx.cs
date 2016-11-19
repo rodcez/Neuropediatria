@@ -20,9 +20,7 @@ namespace Neuropediatria.Login
 
             /* TODO
              
-             * Fazer o Botão "sair" para deletar o cookie/appSet        
              * Testar usuário inativo e com estagiario data expirada     
-             * Ver porque esta o login não esta mudando para SAIR
              
              */
 
