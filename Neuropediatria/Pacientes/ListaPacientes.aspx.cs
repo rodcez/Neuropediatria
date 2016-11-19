@@ -92,6 +92,10 @@ namespace Neuropediatria.Pacientes
                 gvPacientes.DataBind();
 
                 (Master as Site).ocultarPaineis();
+
+                if (!sqlReader.HasRows)
+                    (Master as Site).mostrarErro("Nenhum paciente encontrado.");
+
             }
             catch (Exception e)
             {

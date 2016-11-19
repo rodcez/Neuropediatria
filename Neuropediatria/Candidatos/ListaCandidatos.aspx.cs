@@ -54,6 +54,10 @@ namespace Neuropediatria.Candidatos
                 gvCandidatos.DataBind();
 
                 (Master as Site).ocultarPaineis();
+
+                if (gvCandidatos.Rows.Count <= 0)
+                    (Master as Site).mostrarErro("Nenhum candidato encontrado.");
+
             }
             catch (Exception e)
             {

@@ -33,6 +33,12 @@ namespace Neuropediatria.Conta
             set { ViewState["senhaVS"] = value; }
         }
 
+        public string chaveVS
+        {
+            get { return Convert.ToString(ViewState["chaveVS"]); }
+            set { ViewState["chaveVS"] = value; }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             cabecalho.Text = "<h1>Cadastro de Usuario</h1>";
@@ -57,7 +63,7 @@ namespace Neuropediatria.Conta
 
             idUsuarioVS = id;
 
-            var query = string.Format(  "SELECT U.idUsuario, U.dsUsuario, U.dsPerfil, U.ativo, F.idFuncionario, F.dsNomeFuncionario, E.idEstagio, E.dsNomeAluno, E.idRGM, E.idSupervisor, E.dtEstagioInicio, E.dtEstagioTermino " +
+            var query = string.Format(  "SELECT U.idUsuario, U.dsUsuario, U.dsChave, U.dsPerfil, U.ativo, F.idFuncionario, F.dsNomeFuncionario, E.idEstagio, E.dsNomeAluno, E.idRGM, E.idSupervisor, E.dtEstagioInicio, E.dtEstagioTermino " +
                                         "FROM tb_Usuario AS U " +
                                         "LEFT JOIN tb_Estagio AS E ON(E.idUsuario = U.idUsuario) " +
                                         "LEFT JOIN tb_Funcionario AS F ON(F.idUsuario = U.idUsuario) " +
@@ -69,6 +75,7 @@ namespace Neuropediatria.Conta
             {
                 idUsuarioVS = int.Parse(sqlReader["idUsuario"].ToString());
                 dsUsuario.Text = sqlReader["dsUsuario"].ToString();
+                chaveVS = sqlReader["dsChave"].ToString();
                 ddPerfil.SelectedValue = sqlReader["dsPerfil"].ToString();
                 visualizaTabs();
 
@@ -88,14 +95,12 @@ namespace Neuropediatria.Conta
                     idFuncionarioVS = int.Parse(sqlReader["idFuncionario"].ToString());
                     var ativo = Convert.ToBoolean(sqlReader["ativo"].ToString());
 
-                    if (ddCoordenador.SelectedValue.Equals("coordenador"))
+                    if (ddPerfil.SelectedValue.Equals("coordenador"))
                         cAtivo.Checked = ativo;
                     else
                         aAtivo.Checked = ativo;
 
                 }
-
-                //ativo
 
                 (Master as Site).ocultarPaineis();
             }
@@ -185,6 +190,8 @@ namespace Neuropediatria.Conta
         {
             Dictionary<string, dynamic> sqlParameters = new Dictionary<string, dynamic>();
 
+            var chaveMD5 = idUsuarioVS == 0 ? Utils.Utils.GerarChaveMD5(dsUsuario.Text, senhaVS) : chaveVS;
+
             sqlParameters.Add("@idEstagio", idEstagiarioVS);
             sqlParameters.Add("@idUsuario", idUsuarioVS);
             sqlParameters.Add("@dsNomeAluno", dsNome.Text);
@@ -197,7 +204,7 @@ namespace Neuropediatria.Conta
             sqlParameters.Add("@dsSenha", "MD5+Secret");
             sqlParameters.Add("@dsModulos", "meusPacientes");
             sqlParameters.Add("@dsPerfil", ddPerfil.SelectedValue);
-            sqlParameters.Add("@dsChave", Utils.Utils.GerarChaveMD5(dsUsuario.Text, senhaVS));
+            sqlParameters.Add("@dsChave", chaveMD5);
             sqlParameters.Add("@dtExpiracao", dtEstagioTermino.Text);
             sqlParameters.Add("@ativo", eAtivo.Checked);
 
@@ -237,6 +244,8 @@ namespace Neuropediatria.Conta
                     break;
             }
 
+            var chaveMD5 = idUsuarioVS == 0 ? Utils.Utils.GerarChaveMD5(dsUsuario.Text, senhaVS) : chaveVS;
+
             var ativo = ddPerfil.SelectedValue.Equals("coordenador") ? cAtivo.Checked : aAtivo.Checked;
 
             sqlParameters.Add("@idFuncionario", idFuncionarioVS);
@@ -247,7 +256,7 @@ namespace Neuropediatria.Conta
             sqlParameters.Add("@dsSenha", "MD5+Secret");
             sqlParameters.Add("@dsModulos", modulos);
             sqlParameters.Add("@dsPerfil", ddPerfil.SelectedValue);
-            sqlParameters.Add("@dsChave", Utils.Utils.GerarChaveMD5(dsUsuario.Text, senhaVS));
+            sqlParameters.Add("@dsChave", chaveMD5);
             sqlParameters.Add("@dtExpiracao", DateTime.Now.AddDays(365));
             sqlParameters.Add("@ativo", ativo);
 
@@ -301,7 +310,7 @@ namespace Neuropediatria.Conta
                 return false;
             }
 
-            if (dsSenha.Text.Length < 6)
+            if ((idUsuarioVS == 0 && dsSenha.Text.Length <= 0) || dsSenha.Text.Length < 6)
             {
                 (Master as Site).mostrarErro("A senha deve conter ao menos 6 caracteres!");
                 return false;

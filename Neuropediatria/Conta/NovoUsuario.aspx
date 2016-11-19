@@ -195,16 +195,10 @@
                         <asp:TableCell Width="20px"> </asp:TableCell>                        
                         <asp:TableCell>
                             <asp:TextBox ID="dsSenha" runat="server" Width="140px" TextMode="Password"/>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage=" ! " Display="Static"
-                                ControlToValidate="dsSenha" ValidationGroup="validCandidato" 
-                                ForeColor="White" Font-Bold="true" BackColor="Red" />
                         </asp:TableCell>
                         <asp:TableCell Width="20px"> </asp:TableCell>
                         <asp:TableCell>
                             <asp:TextBox ID="dsSenhaConf" runat="server"  Width="150px" TextMode="Password"/>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage=" ! " Display="Static"
-                                ControlToValidate="dsSenhaConf" ValidationGroup="validCandidato" 
-                                ForeColor="White" Font-Bold="true" BackColor="Red"/>
                         </asp:TableCell>
                     </asp:TableRow>
                 </asp:Table>
