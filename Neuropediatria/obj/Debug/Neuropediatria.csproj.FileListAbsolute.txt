@@ -1,0 +1,329 @@
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\ApplicationInsights.config
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\roslyn\csc.exe
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\roslyn\csc.exe.config
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\roslyn\csc.rsp
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\roslyn\csi.exe
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\roslyn\csi.rsp
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\roslyn\System.AppContext.dll
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\roslyn\System.Collections.Immutable.dll
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\roslyn\System.IO.FileSystem.dll
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\roslyn\System.Reflection.Metadata.dll
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\roslyn\vbc.exe
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\roslyn\vbc.exe.config
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\roslyn\vbc.rsp
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\roslyn\VBCSCompiler.exe
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\roslyn\VBCSCompiler.exe.config
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\Neuropediatria.dll.config
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\Neuropediatria.dll
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\Neuropediatria.pdb
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\Microsoft.AI.DependencyCollector.dll
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\Microsoft.AI.Web.dll
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\Microsoft.AI.WindowsServer.dll
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\Microsoft.ApplicationInsights.dll
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\Microsoft.AI.DependencyCollector.xml
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\Microsoft.AI.Web.xml
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\Microsoft.AI.WindowsServer.xml
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\Microsoft.ApplicationInsights.xml
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\obj\Debug\Neuropediatria.csprojResolveAssemblyReference.cache
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\obj\Debug\Neuropediatria.dll
+C:\Workroot\src\Faculdade\Neuropediatria\Neuropediatria\obj\Debug\Neuropediatria.pdb
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\ApplicationInsights.config
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\roslyn\csc.exe
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\roslyn\csc.exe.config
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\roslyn\csc.rsp
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\roslyn\csi.exe
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\roslyn\csi.rsp
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\roslyn\System.AppContext.dll
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\roslyn\vbc.exe
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\roslyn\vbc.exe.config
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\roslyn\vbc.rsp
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\roslyn\VBCSCompiler.exe
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\Neuropediatria.dll.config
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\Neuropediatria.dll
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\Neuropediatria.pdb
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\Microsoft.AI.Web.dll
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\Microsoft.ApplicationInsights.dll
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\Microsoft.AI.Web.xml
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\Microsoft.ApplicationInsights.xml
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\obj\Debug\Neuropediatria.csprojResolveAssemblyReference.cache
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\obj\Debug\Neuropediatria.dll
+C:\Users\12152401013\Documents\Visual Studio 2015\Projects\Neuropediatria\Neuropediatria\obj\Debug\Neuropediatria.pdb
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\ApplicationInsights.config
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\roslyn\csc.exe
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\roslyn\csc.exe.config
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\roslyn\csc.rsp
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\roslyn\csi.exe
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\roslyn\csi.rsp
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\roslyn\System.AppContext.dll
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\roslyn\vbc.exe
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\roslyn\vbc.exe.config
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\roslyn\vbc.rsp
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\roslyn\VBCSCompiler.exe
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\Neuropediatria.dll.config
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\Neuropediatria.dll
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\Neuropediatria.pdb
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\Microsoft.AI.Web.dll
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\Microsoft.ApplicationInsights.dll
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\Microsoft.AI.Web.xml
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\Microsoft.ApplicationInsights.xml
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\obj\Debug\Neuropediatria.csprojResolveAssemblyReference.cache
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\obj\Debug\Neuropediatria.dll
+C:\Users\12152401013\Documents\Neuropediatria\Neuropediatria\obj\Debug\Neuropediatria.pdb
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\ApplicationInsights.config
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\roslyn\csc.exe
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\roslyn\csc.exe.config
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\roslyn\csc.rsp
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\roslyn\csi.exe
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\roslyn\csi.rsp
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\roslyn\System.AppContext.dll
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\roslyn\System.Collections.Immutable.dll
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\roslyn\System.IO.FileSystem.dll
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\roslyn\System.Reflection.Metadata.dll
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\roslyn\vbc.exe
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\roslyn\vbc.exe.config
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\roslyn\vbc.rsp
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\roslyn\VBCSCompiler.exe
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\roslyn\VBCSCompiler.exe.config
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\Neuropediatria.dll.config
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\Neuropediatria.dll
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\Neuropediatria.pdb
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\Microsoft.AI.Agent.Intercept.dll
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\Microsoft.AI.DependencyCollector.dll
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\Microsoft.AI.Web.dll
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\Microsoft.AI.WindowsServer.dll
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\Microsoft.ApplicationInsights.dll
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\Microsoft.AI.DependencyCollector.xml
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\Microsoft.AI.Web.xml
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\Microsoft.AI.WindowsServer.xml
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\Microsoft.ApplicationInsights.xml
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\obj\Debug\Neuropediatria.csprojResolveAssemblyReference.cache
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\obj\Debug\Neuropediatria.dll
+E:\Faculdade\TCC\Neuropediatria_v5\Neuropediatria\obj\Debug\Neuropediatria.pdb
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\ApplicationInsights.config
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\roslyn\csc.exe
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\roslyn\csc.exe.config
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\roslyn\csc.rsp
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\roslyn\csi.exe
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\roslyn\csi.rsp
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\roslyn\System.AppContext.dll
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\roslyn\System.Collections.Immutable.dll
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\roslyn\System.IO.FileSystem.dll
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\roslyn\System.Reflection.Metadata.dll
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\roslyn\vbc.exe
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\roslyn\vbc.exe.config
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\roslyn\vbc.rsp
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\roslyn\VBCSCompiler.exe
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\roslyn\VBCSCompiler.exe.config
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\Neuropediatria.dll.config
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\Neuropediatria.dll
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\Neuropediatria.pdb
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\Microsoft.AI.Agent.Intercept.dll
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\Microsoft.AI.DependencyCollector.dll
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\Microsoft.AI.Web.dll
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\Microsoft.AI.WindowsServer.dll
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\Microsoft.ApplicationInsights.dll
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\Microsoft.AI.DependencyCollector.xml
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\Microsoft.AI.Web.xml
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\Microsoft.AI.WindowsServer.xml
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\Microsoft.ApplicationInsights.xml
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\obj\Debug\Neuropediatria.csprojResolveAssemblyReference.cache
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\obj\Debug\Neuropediatria.dll
+E:\Faculdade\TCC\Neuropediatria_v9\Neuropediatria\obj\Debug\Neuropediatria.pdb
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\ApplicationInsights.config
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\roslyn\csc.exe
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\roslyn\csc.exe.config
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\roslyn\csc.rsp
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\roslyn\csi.exe
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\roslyn\csi.rsp
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\roslyn\System.AppContext.dll
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\roslyn\System.Collections.Immutable.dll
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\roslyn\System.IO.FileSystem.dll
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\roslyn\System.Reflection.Metadata.dll
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\roslyn\vbc.exe
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\roslyn\vbc.exe.config
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\roslyn\vbc.rsp
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\roslyn\VBCSCompiler.exe
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\roslyn\VBCSCompiler.exe.config
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\Neuropediatria.dll.config
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\Neuropediatria.dll
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\Neuropediatria.pdb
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\Microsoft.AI.Agent.Intercept.dll
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\Microsoft.AI.DependencyCollector.dll
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\Microsoft.AI.Web.dll
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\Microsoft.AI.WindowsServer.dll
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\Microsoft.ApplicationInsights.dll
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\Microsoft.AI.DependencyCollector.xml
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\Microsoft.AI.Web.xml
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\Microsoft.AI.WindowsServer.xml
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\Microsoft.ApplicationInsights.xml
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\obj\Debug\Neuropediatria.csprojResolveAssemblyReference.cache
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\obj\Debug\Neuropediatria.dll
+E:\Faculdade\TCC\13_Neuropediatria\Neuropediatria\obj\Debug\Neuropediatria.pdb
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\ApplicationInsights.config
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\roslyn\csc.exe
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\roslyn\csc.exe.config
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\roslyn\csc.rsp
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\roslyn\csi.exe
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\roslyn\csi.rsp
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\roslyn\System.AppContext.dll
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\roslyn\System.Collections.Immutable.dll
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\roslyn\System.IO.FileSystem.dll
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\roslyn\System.Reflection.Metadata.dll
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\roslyn\vbc.exe
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\roslyn\vbc.exe.config
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\roslyn\vbc.rsp
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\roslyn\VBCSCompiler.exe
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\roslyn\VBCSCompiler.exe.config
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\Neuropediatria.dll.config
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\Neuropediatria.dll
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\Neuropediatria.pdb
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\Microsoft.AI.Agent.Intercept.dll
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\Microsoft.AI.DependencyCollector.dll
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\Microsoft.AI.Web.dll
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\Microsoft.AI.WindowsServer.dll
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\Microsoft.ApplicationInsights.dll
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\Microsoft.AI.DependencyCollector.xml
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\Microsoft.AI.Web.xml
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\Microsoft.AI.WindowsServer.xml
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\Microsoft.ApplicationInsights.xml
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\obj\Debug\Neuropediatria.csprojResolveAssemblyReference.cache
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\obj\Debug\Neuropediatria.dll
+E:\Faculdade\TCC\17_Neuropediatria\Neuropediatria\obj\Debug\Neuropediatria.pdb
