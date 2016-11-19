@@ -176,6 +176,7 @@
     <Compile Include="Conta\NovoUsuario.aspx.designer.cs">
       <DependentUpon>NovoUsuario.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Modelos\Usuarios.cs" />
     <Compile Include="Controle\ControlePerfil.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>

@@ -7,7 +7,6 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 using Utils;
 
@@ -220,9 +219,6 @@ namespace Neuropediatria.Pacientes
              "attachment;filename=ListaPacientes.csv");
             Response.Charset = "";
             Response.ContentType = "application/text";
-
-            gvPacientes.AllowPaging = false;
-            gvPacientes.DataBind();
 
             StringBuilder sb = new StringBuilder();
 
