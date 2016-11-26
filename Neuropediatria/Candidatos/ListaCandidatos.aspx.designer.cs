@@ -40,15 +40,6 @@ namespace Neuropediatria.Candidatos {
         protected global::System.Web.UI.WebControls.Button btnNao;
         
         /// <summary>
-        /// ordenaLista control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ordenaLista;
-        
-        /// <summary>
         /// maisCandidato control.
         /// </summary>
         /// <remarks>
@@ -56,6 +47,24 @@ namespace Neuropediatria.Candidatos {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button maisCandidato;
+        
+        /// <summary>
+        /// btExportar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btExportar;
+        
+        /// <summary>
+        /// ordenaLista control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ordenaLista;
         
         /// <summary>
         /// gvCandidatos control.

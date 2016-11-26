@@ -22,6 +22,15 @@ namespace Neuropediatria.Conta {
         protected global::System.Web.UI.WebControls.CheckBox visuTodos;
         
         /// <summary>
+        /// maisUsuario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button maisUsuario;
+        
+        /// <summary>
         /// btExportar control.
         /// </summary>
         /// <remarks>
@@ -38,15 +47,6 @@ namespace Neuropediatria.Conta {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ordenaLista;
-        
-        /// <summary>
-        /// maisUsuario control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button maisUsuario;
         
         /// <summary>
         /// gvUsuarios control.

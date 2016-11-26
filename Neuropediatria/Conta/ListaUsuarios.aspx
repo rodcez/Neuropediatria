@@ -11,7 +11,8 @@
         Mostrar somente fichas ativas: 
         <asp:CheckBox ID="visuTodos" runat="server" OnCheckedChanged="visuTodos_CheckedChanged" AutoPostBack="true"/>
         <br />
-        <asp:Button ID="btExportar" Visible="false" runat="server" CssClass="btn btn-warning" Text="Exportar Lista" OnClick="btExportar_Click"/>
+    <asp:Button ID="maisUsuario" runat="server" Text="+ Usuario" CssClass="btn btn-success" OnClick="maisUsuario_Click" />
+        <asp:Button ID="btExportar" Visible="true" runat="server" CssClass="btn btn-warning" Text="Exportar Lista" OnClick="btExportar_Click"/>
     </div>
     
     <div class="pull-right">
@@ -29,7 +30,6 @@
     </div>
     
     <br />
-    <asp:Button ID="maisUsuario" runat="server" Text="+ Usuario" CssClass="btn btn-success" OnClick="maisUsuario_Click" />
 
     <asp:GridView ID="gvUsuarios" runat="server" AutoGenerateColumns="false" 
         OnRowCommand="gvUsuarios_RowCommand" DataKeyNames="idUsuario"

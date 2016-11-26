@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Text;
 using System.Web.UI.WebControls;
 using Utils;
 
@@ -16,6 +17,17 @@ namespace Neuropediatria.Candidatos
         {
             get { return (string)(ViewState["idCandidatoVS"] ?? string.Empty); }
             set { ViewState["idCandidatoVS"] = value; }
+        }
+        public List<Usuarios> listaCSV
+        {
+            get
+            {
+                if ((List<Usuarios>)ViewState["listaCSV"] == null)
+                    ViewState["listaCSV"] = new List<Usuarios>();
+
+                return (List<Usuarios>)(ViewState["listaCSV"]);
+            }
+            set { ViewState["listaCSV"] = value; }
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -122,6 +134,35 @@ namespace Neuropediatria.Candidatos
         {
             populaGrid(((ListControl)sender).SelectedValue);
         }
-        
+
+        protected void btExportar_Click(object sender, EventArgs e)
+        {
+            Response.Clear();
+            Response.Buffer = true;
+            Response.AddHeader("content-disposition",
+             "attachment;filename=ListaUsuarios.csv");
+            Response.Charset = "";
+            Response.ContentType = "application/text";
+
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append("Ativo, Nome Usuario, Login Usuario, Perfil");
+            sb.Append("\r\n");
+
+            foreach (var item in listaCSV)
+            {
+                var nome = item.dsPerfil.Equals("estagiario") ? item.dsNomeAluno : item.dsNomeFuncionario;
+
+                sb.Append(string.Format("{0}, {1}, {2}, {3}",
+                    item.ativo, nome, item.dsUsuario, item.dsPerfil));
+                sb.Append("\r\n");
+            }
+
+            Response.Output.Write(sb.ToString());
+            Response.Flush();
+            Response.End();
+
+        }
+
     }
 }

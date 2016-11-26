@@ -78,7 +78,7 @@ namespace Neuropediatria.Login
 
             var query = string.Format(  "SELECT idUsuario, dsUsuario, dsSenha, dsModulos, dsPerfil, dsChave, ativo " +
                                         "FROM tb_Usuario " +
-                                        "WHERE dsChave = '{0}'", chaveMD5);
+                                        "WHERE dsChave = '{0}' AND dsUsuario = '{1}'", chaveMD5, usuario);
 
             SqlDataReader sqlReader = ServicosDB.Instancia.ExecutarSelect(query);
 
