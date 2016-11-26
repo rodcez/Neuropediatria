@@ -75,27 +75,31 @@ namespace Neuropediatria.Pacientes
             idFichaVS = id;
 
 
-            var query = string.Format(  "SELECT E.dsNomeAluno, E.idRGM, E.dtAvaliacao, E.dtEstagioInicio, E.dtEstagioTermino,  " +
+            var query = string.Format("SELECT E.dsNomeAluno, E.idRGM, E.dtAvaliacao, E.dtEstagioInicio, E.dtEstagioTermino,  " +
                                         "C.dsNome, C.dtNascimento, C.idSexo, C.dsResponsavel, C.dsParentesco, C.numTelefone, C.dtAlocacao, " +
                                         "L.idEndereco, L.numCEP, L.dsCidade, L.dsEstado, L.dsLogradouro, L.numLogradouro, L.dsComplemento, " +
-                                        "H.idHistorico, H.dsPatologia, H.dsQueixaPrincipal, H.dsMedicoResponsavel, H.dsDeficitFuncional, H.dsHospitalProcedencia, H.dsTratamentosPrevios, " +
+                                        "H.idHistorico, H.dsPatologia, H.dsQueixaPrincipal, H.dsMedicoResponsavel, H.dsDeficitFuncional, H.dsHospitalProcedencia, H.dsTratamentosPrevios, H.dsHistorico, " +
                                         "F.* " +
                                         "FROM tb_ficha as F " +
-                                        "JOIN tb_Estagio as E on(E.idEstagio = F.idEstagio) " +
-                                        "JOIN tb_Candidato as C on(C.idCandidato = F.idPaciente) " +
-                                        "JOIN tb_Endereco as L on(C.idEndereco = L.idEndereco) " +
-                                        "JOIN tb_Historico as H on(C.idHistorico = H.idHistorico) " +
-                                        "WHERE idFicha = {0} AND idEstagio = ", id, idUsuario);
+                                        "LEFT JOIN tb_Estagio as E on(E.idEstagio = F.idEstagio) " +
+                                        "LEFT JOIN tb_Candidato as C on(C.idCandidato = F.idPaciente) " +
+                                        "LEFT JOIN tb_Endereco as L on(C.idEndereco = L.idEndereco) " +
+                                        "LEFT JOIN tb_Historico as H on(C.idHistorico = H.idHistorico) " +
+                                        "LEFT JOIN tb_Usuario as U on (E.idUsuario = U.idUsuario) " +
+                                        "WHERE F.idFicha = {0} AND U.idUsuario = {1}", id, idUsuario);
 
             SqlDataReader sqlReader = ServicosDB.Instancia.ExecutarSelect(query);
 
             if (sqlReader.Read())
             {
-                idFichaVS = int.Parse(sqlReader["idFicha"].ToString());
-                idEstagiarioVS = int.Parse(sqlReader["idEstagio"].ToString());
-                idCandidatoVS = int.Parse(sqlReader["idPaciente"].ToString());
-                idHistoricoVS = int.Parse(sqlReader["idHistorico"].ToString());
-                idEnderecoVS = int.Parse(sqlReader["idEndereco"].ToString());
+                int tempId;
+
+                idFichaVS = Utils.Utils.DataToInt(sqlReader["idFicha"].ToString());
+                idEstagiarioVS = Utils.Utils.DataToInt(sqlReader["idEstagio"].ToString());
+                idCandidatoVS = Utils.Utils.DataToInt(sqlReader["idPaciente"].ToString());
+                idHistoricoVS = Utils.Utils.DataToInt(sqlReader["idHistorico"].ToString());
+                idEnderecoVS = Utils.Utils.DataToInt(sqlReader["idEndereco"].ToString());
+
                 dtAlocacaoVS = sqlReader["dtAlocacao"].ToString();
 
                 dsNomeAluno.Text = sqlReader["dsNomeAluno"].ToString();
@@ -123,80 +127,151 @@ namespace Neuropediatria.Pacientes
                 dsTratamentosPrevios.Text = sqlReader["dsTratamentosPrevios"].ToString();
                 dsHistorico.Text = sqlReader["dsHistorico"].ToString();
 
-                hasADNMP.Checked = Convert.ToBoolean(sqlReader["hasADNMP"].ToString());
+                hasADNMP.Checked = Utils.Utils.DataToBool(sqlReader["hasADNMP"].ToString());
                 dsMotivoADNMP.Text = sqlReader["dsMotivoADNMP"].ToString();
-                idADNMP.SelectedValue = sqlReader["idADNMP"].ToString();
-                hasOutrasSindromes.Checked = Convert.ToBoolean(sqlReader["hasOutrasSindromes"].ToString());
+
+                if (!string.IsNullOrEmpty(sqlReader["idADNMP"].ToString()))
+                    idADNMP.SelectedValue = sqlReader["idADNMP"].ToString();
+
+                hasOutrasSindromes.Checked = Utils.Utils.DataToBool(sqlReader["hasOutrasSindromes"].ToString());
                 dsQualOutraSindrome.Text = sqlReader["dsQualOutraSindrome"].ToString();
-                hasEncefCronInfantilNaoProgres.SelectedValue = sqlReader["hasEncefCronInfantilNaoProgres"].ToString();
-                idClassificacaoTopografica.SelectedValue = sqlReader["idClassificacaoTopografica"].ToString();
+
+                if (!string.IsNullOrEmpty(sqlReader["hasEncefCronInfantilNaoProgres"].ToString()))
+                    hasEncefCronInfantilNaoProgres.SelectedValue = sqlReader["hasEncefCronInfantilNaoProgres"].ToString();
+
+                if (!string.IsNullOrEmpty(sqlReader["idClassificacaoTopografica"].ToString()))
+                    idClassificacaoTopografica.SelectedValue = sqlReader["idClassificacaoTopografica"].ToString();
                 dsclassificacaoClinica.Text = sqlReader["dsclassificacaoClinica"].ToString();
-                idNivel.SelectedValue = sqlReader["idNivel"].ToString();
-                idNivelGMFCS.SelectedValue = sqlReader["idNivelGMFCS"].ToString();
+
+                if (!string.IsNullOrEmpty(sqlReader["idNivel"].ToString()))
+                    idNivel.SelectedValue = sqlReader["idNivel"].ToString();
+
+                if (!string.IsNullOrEmpty(sqlReader["idNivelGMFCS"].ToString()))
+                    idNivelGMFCS.SelectedValue = sqlReader["idNivelGMFCS"].ToString();
                 dsPatologiasDisturbiosAssoc.Text = sqlReader["dsPatologiasDisturbiosAssoc"].ToString();
                 dsMedicamentosEmUso.Text = sqlReader["dsMedicamentosEmUso"].ToString();
                 dsExamesComplementares.Text = sqlReader["dsExamesComplementares"].ToString();
                 dsProtesesAdaptacoes.Text = sqlReader["dsProtesesAdaptacoes"].ToString();
                 dsCaracteristicasSindromicas.Text = sqlReader["dsCaracteristicasSindromicas"].ToString();
-                idAvalDesenvMotorVisao.SelectedValue = sqlReader["idAvalDesenvMotorVisao"].ToString();
-                idAvalDesenvMotorAudicao.SelectedValue = sqlReader["idAvalDesenvMotorAudicao"].ToString();
-                idAvalDesenvMotorLinguagem.SelectedValue = sqlReader["idAvalDesenvMotorLinguagem"].ToString();
-                idAvalDesenvMotorCognitivo.SelectedValue = sqlReader["idAvalDesenvMotorCognitivo"].ToString();
+
+                if (!string.IsNullOrEmpty(sqlReader["idAvalDesenvMotorVisao"].ToString()))
+                    idAvalDesenvMotorVisao.SelectedValue = sqlReader["idAvalDesenvMotorVisao"].ToString();
+
+                if (!string.IsNullOrEmpty(sqlReader["idAvalDesenvMotorAudicao"].ToString()))
+                    idAvalDesenvMotorAudicao.SelectedValue = sqlReader["idAvalDesenvMotorAudicao"].ToString();
+
+                if (!string.IsNullOrEmpty(sqlReader["idAvalDesenvMotorLinguagem"].ToString()))
+                    idAvalDesenvMotorLinguagem.SelectedValue = sqlReader["idAvalDesenvMotorLinguagem"].ToString();
+
+                if (!string.IsNullOrEmpty(sqlReader["idAvalDesenvMotorCognitivo"].ToString()))
+                    idAvalDesenvMotorCognitivo.SelectedValue = sqlReader["idAvalDesenvMotorCognitivo"].ToString();
                 dsAvalDesenvMotorCognitivoResp.Text = sqlReader["dsAvalDesenvMotorCognitivoResp"].ToString();
-                idReflexosPrimitivos.SelectedValue = sqlReader["idReflexosPrimitivos"].ToString();
+
+                if (!string.IsNullOrEmpty(sqlReader["idReflexosPrimitivos"].ToString()))
+                    idReflexosPrimitivos.SelectedValue = sqlReader["idReflexosPrimitivos"].ToString();
                 dsReflexosPrimitivosQuais.Text = sqlReader["dsReflexosPrimitivosQuais"].ToString();
-                idSupinoSimetria.SelectedValue = sqlReader["idSupinoSimetria"].ToString();
-                idSupinoAlinhamento.SelectedValue = sqlReader["idSupinoAlinhamento"].ToString();
+
+                if (!string.IsNullOrEmpty(sqlReader["idSupinoSimetria"].ToString()))
+                    idSupinoSimetria.SelectedValue = sqlReader["idSupinoSimetria"].ToString();
+
+                if (!string.IsNullOrEmpty(sqlReader["idSupinoAlinhamento"].ToString()))
+                    idSupinoAlinhamento.SelectedValue = sqlReader["idSupinoAlinhamento"].ToString();
                 idSupinoMovimentacaoAtiva.Text = sqlReader["idSupinoMovimentacaoAtiva"].ToString();
                 dsSupinoObservacao.Text = sqlReader["dsSupinoObservacao"].ToString();
-                idPronoControleServical.SelectedValue = sqlReader["idPronoControleServical"].ToString();
-                idPronoControleEscapular.SelectedValue = sqlReader["idPronoControleEscapular"].ToString();
-                idPronoSimetria.SelectedValue = sqlReader["idPronoSimetria"].ToString();
-                idPronoAlinhamento.SelectedValue = sqlReader["idPronoAlinhamento"].ToString();
-                idPronoMovimentacaoAtiva.SelectedValue = sqlReader["idPronoMovimentacaoAtiva"].ToString();
+
+                if (!string.IsNullOrEmpty(sqlReader["idPronoControleServical"].ToString()))
+                    idPronoControleServical.SelectedValue = sqlReader["idPronoControleServical"].ToString();
+
+                if (!string.IsNullOrEmpty(sqlReader["idPronoControleEscapular"].ToString()))
+                    idPronoControleEscapular.SelectedValue = sqlReader["idPronoControleEscapular"].ToString();
+
+                if (!string.IsNullOrEmpty(sqlReader["idPronoSimetria"].ToString()))
+                    idPronoSimetria.SelectedValue = sqlReader["idPronoSimetria"].ToString();
+
+                if (!string.IsNullOrEmpty(sqlReader["idPronoAlinhamento"].ToString()))
+                    idPronoAlinhamento.SelectedValue = sqlReader["idPronoAlinhamento"].ToString();
+
+                if (!string.IsNullOrEmpty(sqlReader["idPronoMovimentacaoAtiva"].ToString()))
+                    idPronoMovimentacaoAtiva.SelectedValue = sqlReader["idPronoMovimentacaoAtiva"].ToString();
                 dsPronoObservacao.Text = sqlReader["dsPronoObservacao"].ToString();
-                idRolar.SelectedValue = sqlReader["idRolar"].ToString();
-                idRolaDecubito.SelectedValue = sqlReader["idRolaDecubito"].ToString();
-                hasUsoPadraoPatologico.Checked = Convert.ToBoolean(sqlReader["hasUsoPadraoPatologico"].ToString());
+
+                if (!string.IsNullOrEmpty(sqlReader["idRolar"].ToString()))
+                    idRolar.SelectedValue = sqlReader["idRolar"].ToString();
+
+                if (!string.IsNullOrEmpty(sqlReader["idRolaDecubito"].ToString()))
+                    idRolaDecubito.SelectedValue = sqlReader["idRolaDecubito"].ToString();
+                hasUsoPadraoPatologico.Checked = Utils.Utils.DataToBool(sqlReader["hasUsoPadraoPatologico"].ToString());
                 dsUsoPadraoPatologicoQual.Text = sqlReader["dsUsoPadraoPatologicoQual"].ToString();
-                idRolarDissociacao.SelectedValue = sqlReader["idRolarDissociacao"].ToString();
-                idSentadoControleServical.SelectedValue = sqlReader["idSentadoControleServical"].ToString();
+
+                if (!string.IsNullOrEmpty(sqlReader["idRolarDissociacao"].ToString()))
+                    idRolarDissociacao.SelectedValue = sqlReader["idRolarDissociacao"].ToString();
+
+                if (!string.IsNullOrEmpty(sqlReader["idSentadoControleServical"].ToString()))
+                    idSentadoControleServical.SelectedValue = sqlReader["idSentadoControleServical"].ToString();
                 idSentadoControleTronco.Text = sqlReader["idSentadoControleTronco"].ToString();
-                idSentadoSimetria.SelectedValue = sqlReader["idSentadoSimetria"].ToString();
+
+                if (!string.IsNullOrEmpty(sqlReader["idSentadoSimetria"].ToString()))
+                    idSentadoSimetria.SelectedValue = sqlReader["idSentadoSimetria"].ToString();
                 idSentadoAlinhamento.Text = sqlReader["idSentadoAlinhamento"].ToString();
-                idSentadoMovimentacaoAtiva.SelectedValue = sqlReader["idSentadoMovimentacaoAtiva"].ToString();
+
+                if (!string.IsNullOrEmpty(sqlReader["idSentadoMovimentacaoAtiva"].ToString()))
+                    idSentadoMovimentacaoAtiva.SelectedValue = sqlReader["idSentadoMovimentacaoAtiva"].ToString();
                 dsSentadoObservacao.Text = sqlReader["dsSentadoObservacao"].ToString();
                 dsTrocaPosturalSupinoSentado.Text = sqlReader["dsTrocaPosturalSupinoSentado"].ToString();
-                idSentadoPosturaQuadril.SelectedValue = sqlReader["idSentadoPosturaQuadril"].ToString();
-                idSentadoPosturaQuadrilIncl.SelectedValue = sqlReader["idSentadoPosturaQuadrilIncl"].ToString();
-                idSentadoDeformColuna.SelectedValue = sqlReader["idSentadoDeformColuna"].ToString();
-                idSentadoDeformColunaPres.SelectedValue = sqlReader["idSentadoDeformColunaPres"].ToString();
-                idSentadoDeformQuadril.SelectedValue = sqlReader["idSentadoDeformQuadril"].ToString();
-                idSentadoDeformQuadrilPres.SelectedValue = sqlReader["idSentadoDeformQuadrilPres"].ToString();
-                idEngatinhar.SelectedValue = sqlReader["idEngatinhar"].ToString();
+
+                if (!string.IsNullOrEmpty(sqlReader["idSentadoPosturaQuadril"].ToString()))
+                    idSentadoPosturaQuadril.SelectedValue = sqlReader["idSentadoPosturaQuadril"].ToString();
+
+                if (!string.IsNullOrEmpty(sqlReader["idSentadoPosturaQuadrilIncl"].ToString()))
+                    idSentadoPosturaQuadrilIncl.SelectedValue = sqlReader["idSentadoPosturaQuadrilIncl"].ToString();
+
+                if (!string.IsNullOrEmpty(sqlReader["idSentadoDeformColuna"].ToString()))
+                    idSentadoDeformColuna.SelectedValue = sqlReader["idSentadoDeformColuna"].ToString();
+
+                if (!string.IsNullOrEmpty(sqlReader["idSentadoDeformColunaPres"].ToString()))
+                    idSentadoDeformColunaPres.SelectedValue = sqlReader["idSentadoDeformColunaPres"].ToString();
+
+                if (!string.IsNullOrEmpty(sqlReader["idSentadoDeformQuadril"].ToString()))
+                    idSentadoDeformQuadril.SelectedValue = sqlReader["idSentadoDeformQuadril"].ToString();
+
+                if (!string.IsNullOrEmpty(sqlReader["idSentadoDeformQuadrilPres"].ToString()))
+                    idSentadoDeformQuadrilPres.SelectedValue = sqlReader["idSentadoDeformQuadrilPres"].ToString();
+
+                if (!string.IsNullOrEmpty(sqlReader["idEngatinhar"].ToString()))
+                    idEngatinhar.SelectedValue = sqlReader["idEngatinhar"].ToString();
                 dsEngatinhar.Text = sqlReader["dsEngatinhar"].ToString();
-                idArrastar.SelectedValue = sqlReader["idArrastar"].ToString();
+
+                if (!string.IsNullOrEmpty(sqlReader["idArrastar"].ToString()))
+                    idArrastar.SelectedValue = sqlReader["idArrastar"].ToString();
                 dsArrastar.Text = sqlReader["dsArrastar"].ToString();
-                idOrtostatismo.SelectedValue = sqlReader["idOrtostatismo"].ToString();
+
+                if (!string.IsNullOrEmpty(sqlReader["idOrtostatismo"].ToString()))
+                    idOrtostatismo.SelectedValue = sqlReader["idOrtostatismo"].ToString();
                 idOrtostatismoPosicPes.Text = sqlReader["idOrtostatismoPosicPes"].ToString();
-                idMarcha.SelectedValue = sqlReader["idMarcha"].ToString();
+
+                if (!string.IsNullOrEmpty(sqlReader["idMarcha"].ToString()))
+                    idMarcha.SelectedValue = sqlReader["idMarcha"].ToString();
                 dsMarcha.Text = sqlReader["dsMarcha"].ToString();
                 dsMarchaObservacoes.Text = sqlReader["dsMarchaObservacoes"].ToString();
-                hasHipertoniaElastica.Checked = Convert.ToBoolean(sqlReader["hasHipertoniaElastica"].ToString());
+                hasHipertoniaElastica.Checked = Utils.Utils.DataToBool(sqlReader["hasHipertoniaElastica"].ToString());
                 dsHipertoniaElastica.Text = sqlReader["dsHipertoniaElastica"].ToString();
                 dsHipertElastSinaisClinicos.Text = sqlReader["dsHipertElastSinaisClinicos"].ToString();
                 dsHipertElastAsWorth.Text = sqlReader["dsHipertElastAsWorth"].ToString();
-                hasHipertoniaPlastica.Checked = Convert.ToBoolean(sqlReader["hasHipertoniaPlastica"].ToString());
+                hasHipertoniaPlastica.Checked = Utils.Utils.DataToBool(sqlReader["hasHipertoniaPlastica"].ToString());
                 dsHipertoniaPlasticaLocalizacao.Text = sqlReader["dsHipertoniaPlasticaLocalizacao"].ToString();
                 dsHipertPlastSinaisClinicos.Text = sqlReader["dsHipertPlastSinaisClinicos"].ToString();
-                hasDiscinesias.Checked = Convert.ToBoolean(sqlReader["hasDiscinesias"].ToString());
+                hasDiscinesias.Checked = Utils.Utils.DataToBool(sqlReader["hasDiscinesias"].ToString());
                 dsDiscinesiasQual.Text = sqlReader["dsDiscinesiasQual"].ToString();
-                idMolestiaIncorrencia.SelectedValue = sqlReader["idMolestiaIncorrencia"].ToString();
+
+                if (!string.IsNullOrEmpty(sqlReader["idMolestiaIncorrencia"].ToString()))
+                    idMolestiaIncorrencia.SelectedValue = sqlReader["idMolestiaIncorrencia"].ToString();
                 dsDiscinesiasLocalizacao.Text = sqlReader["dsDiscinesiasLocalizacao"].ToString();
-                hasHipotonia.Checked = Convert.ToBoolean(sqlReader["hasHipotonia"].ToString());
+                hasHipotonia.Checked = Utils.Utils.DataToBool(sqlReader["hasHipotonia"].ToString());
                 dsHipotoniaLocalizacao.Text = sqlReader["dsHipotoniaLocalizacao"].ToString();
-                hasIncoordenacaoMov.Checked = Convert.ToBoolean(sqlReader["hasIncoordenacaoMov"].ToString());
-                idDiscinesias.SelectedValue = sqlReader["idDiscinesias"].ToString();
+                hasIncoordenacaoMov.Checked = Utils.Utils.DataToBool(sqlReader["hasIncoordenacaoMov"].ToString());
+
+                if (!string.IsNullOrEmpty(sqlReader["idDiscinesias"].ToString()))
+                    idDiscinesias.SelectedValue = sqlReader["idDiscinesias"].ToString();
                 dsTonusDinamico.Text = sqlReader["dsTonusDinamico"].ToString();
                 dsEncurtamentoMuscDeform.Text = sqlReader["dsEncurtamentoMuscDeform"].ToString();
                 dsForcaMuscular.Text = sqlReader["dsForcaMuscular"].ToString();
@@ -210,13 +285,21 @@ namespace Neuropediatria.Pacientes
                 dsReacEquilibrioBipede.Text = sqlReader["dsReacEquilibrioBipede"].ToString();
                 dsReacProtecaoPostSentada.Text = sqlReader["dsReacProtecaoPostSentada"].ToString();
                 dsReacProtecaoBipede.Text = sqlReader["dsReacProtecaoBipede"].ToString();
-                idAtivVidaDiariaAlimentacao.SelectedValue = sqlReader["idAtivVidaDiariaAlimentacao"].ToString();
+
+                if (!string.IsNullOrEmpty(sqlReader["idAtivVidaDiariaAlimentacao"].ToString()))
+                    idAtivVidaDiariaAlimentacao.SelectedValue = sqlReader["idAtivVidaDiariaAlimentacao"].ToString();
                 dsAtivVidaDiariaAlimentacao.Text = sqlReader["dsAtivVidaDiariaAlimentacao"].ToString();
-                idAtivVidaDiariaHigiene.SelectedValue = sqlReader["idAtivVidaDiariaHigiene"].ToString();
+
+                if (!string.IsNullOrEmpty(sqlReader["idAtivVidaDiariaHigiene"].ToString()))
+                    idAtivVidaDiariaHigiene.SelectedValue = sqlReader["idAtivVidaDiariaHigiene"].ToString();
                 dsAtivVidaDiariaHigiene.Text = sqlReader["dsAtivVidaDiariaHigiene"].ToString();
-                idAtivVidaDiariaVestuario.SelectedValue = sqlReader["idAtivVidaDiariaVestuario"].ToString();
+
+                if (!string.IsNullOrEmpty(sqlReader["idAtivVidaDiariaVestuario"].ToString()))
+                    idAtivVidaDiariaVestuario.SelectedValue = sqlReader["idAtivVidaDiariaVestuario"].ToString();
                 dsAtivVidaDiariaVestuario.Text = sqlReader["dsAtivVidaDiariaVestuario"].ToString();
-                idAtivVidaDiariaLocomocao.SelectedValue = sqlReader["idAtivVidaDiariaLocomocao"].ToString();
+
+                if (!string.IsNullOrEmpty(sqlReader["idAtivVidaDiariaLocomocao"].ToString()))
+                    idAtivVidaDiariaLocomocao.SelectedValue = sqlReader["idAtivVidaDiariaLocomocao"].ToString();
                 dsAtivVidaDiariaLocomocao.Text = sqlReader["dsAtivVidaDiariaLocomocao"].ToString();
                 dsSistemaRespiratorio.Text = sqlReader["dsSistemaRespiratorio"].ToString();
                 dsObjetivos.Text = sqlReader["dsObjetivos"].ToString();
@@ -227,6 +310,8 @@ namespace Neuropediatria.Pacientes
                 (Master as Site).mostrarErro("Ficha não encontrada!");
                 return;
             }
+
+            (Master as Site).ocultarPaineis();
         }
 
         protected void btnSalvar_Click(object sender, EventArgs e)

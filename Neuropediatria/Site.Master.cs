@@ -22,12 +22,6 @@ namespace Neuropediatria
             navUsuarios.Visible = Convert.ToBoolean(appSett["Usuarios"]);
             navLogin.Visible = !Convert.ToBoolean(appSett["LoginAtivo"]);
             navSair.Visible = Convert.ToBoolean(appSett["LoginAtivo"]);
-
-            /* TODO
-             
-             * Fazer a tela Meus Pacientes 
-                          
-             */
         }
 
         public void mostrarCarregando(string mensagem)

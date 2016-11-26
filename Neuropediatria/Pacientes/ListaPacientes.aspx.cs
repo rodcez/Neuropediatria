@@ -33,6 +33,18 @@ namespace Neuropediatria.Pacientes
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            /* TODO
+             
+             * Ver porque o visu não esta funcionando
+             * 
+
+
+             
+             */
+
+
+
+
             Validacoes("Pacientes");
 
             var perfil = ConfigurationManager.AppSettings["Perfil"].ToString();
@@ -143,7 +155,7 @@ namespace Neuropediatria.Pacientes
                     return;
                 }
 
-                verFichaCandidato(idPacienteVS);
+                verFichaCandidato(int.Parse(idFicha));
             }
             else if (e.CommandName == "excluirPaciente")
             {
@@ -183,9 +195,9 @@ namespace Neuropediatria.Pacientes
             (Master as Site).ocultarPaineis();
         }
 
-        private void verFichaCandidato(int idCandidato)
+        private void verFichaCandidato(int idFicha)
         {
-            Response.Redirect("~/Pacientes/FichaPaciente.aspx?id=" + idCandidato);
+            Response.Redirect("~/Pacientes/FichaPaciente.aspx?id=" + idFicha);
         }
 
         protected void ordenaLista_SelectedIndexChanged(object sender, EventArgs e)

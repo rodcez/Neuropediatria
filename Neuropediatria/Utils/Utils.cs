@@ -28,5 +28,15 @@ namespace Neuropediatria.Utils
                 return sBuilder.ToString();
             }
         }
+
+        public static bool DataToBool(string value)
+        {
+            return string.IsNullOrWhiteSpace(value) ? false : Convert.ToBoolean(value);
+        }
+
+        public static int DataToInt(string value)
+        {
+            return string.IsNullOrWhiteSpace(value) ? 0 : Convert.ToInt32(value);
+        }
     }
 }

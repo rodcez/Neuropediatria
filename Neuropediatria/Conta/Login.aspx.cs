@@ -18,12 +18,6 @@ namespace Neuropediatria.Login
         {            
             if (IsPostBack) return;
 
-            /* TODO
-             
-             * Testar usuário inativo e com estagiario data expirada     
-             
-             */
-
             if (!string.IsNullOrEmpty(Request.QueryString["msg"]))
                 getMensagem(Request.QueryString["msg"]);
         }

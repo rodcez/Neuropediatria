@@ -32,6 +32,17 @@ namespace Neuropediatria.Candidatos
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            /* TODO
+             
+             * Fazer export funcionar
+             * 
+
+
+             
+             */
+
+
+
             Validacoes("Candidatos");
             if (IsPostBack) return;
             

@@ -39,12 +39,10 @@ namespace Neuropediatria.Pacientes
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Validacoes("Pacientes");
+            Validacoes("MeusPacientes");
 
             var perfil = ConfigurationManager.AppSettings["Perfil"].ToString();
             idEstagiarioVS = int.Parse(ConfigurationManager.AppSettings["IdUsuario"].ToString());
-
-            btExportar.Visible = perfil == "coordenador" || perfil == "admin";
 
             if (IsPostBack) return;
 
@@ -55,9 +53,6 @@ namespace Neuropediatria.Pacientes
         {
             try
             {
-
-
-
                 var query = string.Format(  "SELECT C.idCandidato, C.dsNome, C.dtNascimento, H.dsPatologia, C.dtAlocacao, E.dsNomeAluno, F.idFicha   " +
                                             "FROM tb_Ficha as F " +
                                             "RIGHT JOIN tb_Candidato as C on(c.idCandidato = f.idPaciente) " +
@@ -141,13 +136,12 @@ namespace Neuropediatria.Pacientes
 
                 if(string.IsNullOrEmpty(idFicha))
                 {
-                    (Master as Site).mostrarCarregando("O Paciente: <strong>" + gvPacientes.DataKeys[index]["dsNome"].ToString() + "</strong> não foi alocado a nenhum Estagiário, gostaria de alocar o paciente?");
-                    btnsConfirmar.Visible = true;
+                    (Master as Site).mostrarCarregando("O Paciente: <strong>" + gvPacientes.DataKeys[index]["dsNome"].ToString() + "</strong> não foi alocado a nenhum Estagiário, Contate o seu Supervisor?");
 
                     return;
                 }
 
-                verFichaCandidato(idPacienteVS);
+                verFichaCandidato(int.Parse(idFicha));
             }
         }
 

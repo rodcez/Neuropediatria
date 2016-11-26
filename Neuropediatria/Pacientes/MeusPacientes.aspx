@@ -22,8 +22,7 @@
     </div>
     
     <asp:GridView ID="gvPacientes" runat="server" AutoGenerateColumns="false" 
-        OnRowCommand="gvPacientes_RowCommand" DataKeyNames="idCandidato, dsNome, idFicha"
-        OnRowDataBound="gvPacientes_RowDataBound" CssClass="table table-bordered">
+        OnRowCommand="gvPacientes_RowCommand" DataKeyNames="idCandidato, dsNome, idFicha" CssClass="table table-bordered">
         <RowStyle HorizontalAlign="Center" VerticalAlign="Middle" />
         <Columns>
             <asp:ButtonField CommandName="fichaCandidato" ItemStyle-Width="130px"
