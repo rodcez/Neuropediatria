@@ -98,6 +98,7 @@
     <Content Include="Candidatos\ListaCandidatos.aspx" />
     <Content Include="Conta\ListaUsuarios.aspx" />
     <Content Include="Conta\NovoUsuario.aspx" />
+    <Content Include="Pacientes\MeusPacientes.aspx" />
     <Content Include="Pacientes\ListaPacientes.aspx" />
     <Content Include="Pacientes\FichaPaciente.aspx" />
     <Content Include="packages.config" />
@@ -196,6 +197,13 @@
     </Compile>
     <Compile Include="Modelos\Candidato.cs" />
     <Compile Include="Modelos\Paciente.cs" />
+    <Compile Include="Pacientes\MeusPacientes.aspx.cs">
+      <DependentUpon>MeusPacientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pacientes\MeusPacientes.aspx.designer.cs">
+      <DependentUpon>MeusPacientes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pacientes\ListaPacientes.aspx.cs">
       <DependentUpon>ListaPacientes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

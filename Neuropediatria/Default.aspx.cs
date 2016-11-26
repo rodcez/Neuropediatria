@@ -18,7 +18,7 @@ namespace Neuropediatria
                         
             var appSett = ConfigurationManager.AppSettings;
 
-            btRelatorio.Visible = Convert.ToBoolean(appSett["Relatorios"]);
+            btRelatorio.Visible = false;//Convert.ToBoolean(appSett["Relatorios"]);
             btCandidatos.Visible = Convert.ToBoolean(appSett["Candidatos"]);
             btPacientes.Visible = Convert.ToBoolean(appSett["Pacientes"]);
             btMeusPacientes.Visible = Convert.ToBoolean(appSett["MeusPacientes"]);
@@ -28,7 +28,7 @@ namespace Neuropediatria
 
         protected void btRelatorio_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Relatorio/relatorios.aspx");
+            //Response.Redirect("~/Relatorio/relatorios.aspx");
         }
 
         protected void btCandidatos_Click(object sender, EventArgs e)
