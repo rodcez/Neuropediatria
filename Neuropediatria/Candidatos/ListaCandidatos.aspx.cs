@@ -18,31 +18,20 @@ namespace Neuropediatria.Candidatos
             get { return (string)(ViewState["idCandidatoVS"] ?? string.Empty); }
             set { ViewState["idCandidatoVS"] = value; }
         }
-        public List<Usuarios> listaCSV
+        public List<Candidato> listaCSV
         {
             get
             {
-                if ((List<Usuarios>)ViewState["listaCSV"] == null)
-                    ViewState["listaCSV"] = new List<Usuarios>();
+                if ((List<Candidato>)ViewState["listaCSV"] == null)
+                    ViewState["listaCSV"] = new List<Candidato>();
 
-                return (List<Usuarios>)(ViewState["listaCSV"]);
+                return (List<Candidato>)(ViewState["listaCSV"]);
             }
             set { ViewState["listaCSV"] = value; }
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            /* TODO
-             
-             * Fazer export funcionar
-             * 
-
-
-             
-             */
-
-
-
             Validacoes("Candidatos");
             if (IsPostBack) return;
             
@@ -67,7 +56,28 @@ namespace Neuropediatria.Candidatos
                     query += "order by " + ordem + " ASC";
 
 
-                gvCandidatos.DataSource = ServicosDB.Instancia.ExecutarSelect(query);
+                List<Candidato> listaCandidato = new List<Candidato>();
+
+                SqlDataReader sqlReader = ServicosDB.Instancia.ExecutarSelect(query);
+
+                while (sqlReader.Read())
+                {
+                    var paciente = Convert.ToBoolean(int.Parse(sqlReader["isPaciente"].ToString()));
+
+                    listaCandidato.Add(new Candidato
+                    {
+                        idCandidato = sqlReader["idCandidato"].ToString(),
+                        dsNome = sqlReader["dsNome"].ToString(),
+                        dtNascimento = Convert.ToDateTime(sqlReader["dtNascimento"].ToString()),
+                        dsPatologia = sqlReader["dsPatologia"].ToString(),
+                        isPaciente = paciente,
+                        status = paciente ? "Paciente" : "Candidato"
+                    });
+                }
+
+
+                listaCSV = listaCandidato;
+                gvCandidatos.DataSource = listaCandidato;
                 gvCandidatos.DataBind();
 
                 (Master as Site).ocultarPaineis();
@@ -151,21 +161,19 @@ namespace Neuropediatria.Candidatos
             Response.Clear();
             Response.Buffer = true;
             Response.AddHeader("content-disposition",
-             "attachment;filename=ListaUsuarios.csv");
+             "attachment;filename=ListaCandidatos.csv");
             Response.Charset = "";
             Response.ContentType = "application/text";
 
             StringBuilder sb = new StringBuilder();
 
-            sb.Append("Ativo, Nome Usuario, Login Usuario, Perfil");
+            sb.Append("Nome Candidato, Data Nascimento, Patologia");
             sb.Append("\r\n");
 
             foreach (var item in listaCSV)
             {
-                var nome = item.dsPerfil.Equals("estagiario") ? item.dsNomeAluno : item.dsNomeFuncionario;
-
-                sb.Append(string.Format("{0}, {1}, {2}, {3}",
-                    item.ativo, nome, item.dsUsuario, item.dsPerfil));
+                sb.Append(string.Format("{0}, {1}, {2}",
+                    item.dsNome, item.dtNascimento, item.dsPatologia));
                 sb.Append("\r\n");
             }
 

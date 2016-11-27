@@ -47,9 +47,7 @@
                 <ItemTemplate><%# Math.Abs((int.Parse(Convert.ToDateTime(Eval("dtNascimento").ToString()).ToString("yyyyMMdd")) - int.Parse(DateTime.Today.ToString("yyyyMMdd"))) / 10000) %></ItemTemplate>
             </asp:TemplateField>
             <asp:BoundField HeaderText="Patologia" DataField="dsPatologia" />
-            <asp:TemplateField HeaderText="Status" SortExpression="isPaciente">
-                <ItemTemplate><%# (Convert.ToBoolean(int.Parse(Eval("isPaciente").ToString()))) ? "Paciente" : "Candidato" %></ItemTemplate>
-            </asp:TemplateField>
+            <asp:BoundField HeaderText="Status" DataField="status" />
             <asp:ButtonField CommandName="candPaciente" ItemStyle-Width="130px"
                 HeaderText="Transformar em" Text="Paciente"
                 ControlStyle-CssClass="btn btn-warning" ItemStyle-HorizontalAlign="Center" />
