@@ -30,16 +30,12 @@ namespace Neuropediatria.Conta
             if (IsPostBack) return;
 
             populaGrid(string.Empty);
-
-            /* TODO
-             
-             * Fazer botão de mostrar somente ativos 
-             
-             */
         }
 
         private void populaGrid(string ordem, bool regraAtivo = false)
         {
+            listaCSV.Clear();
+
             try
             {
                 var query = "SELECT U.idUsuario, F.dsNomeFuncionario, E.dsNomeAluno, U.dsUsuario, U.dsPerfil, U.ativo " +

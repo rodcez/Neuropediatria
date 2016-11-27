@@ -45,6 +45,7 @@ namespace Neuropediatria.Candidatos
 
         private void populaGrid(string ordem = "")
         {
+            listaCSV.Clear();
             try
             {
                 var query = "SELECT C.idCandidato, C.dsNome, C.dtNascimento, h.dsPatologia, C.isPaciente " +

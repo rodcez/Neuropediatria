@@ -33,18 +33,6 @@ namespace Neuropediatria.Pacientes
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            /* TODO
-             
-             * Ver porque o visu não esta funcionando
-             * 
-
-
-             
-             */
-
-
-
-
             Validacoes("Pacientes");
 
             var perfil = ConfigurationManager.AppSettings["Perfil"].ToString();
@@ -57,6 +45,7 @@ namespace Neuropediatria.Pacientes
 
         private void populaGrid(string ordem, bool regraAtivo = false)
         {
+            listaCSV.Clear();
             try
             {
                 var query = "SELECT C.idCandidato, C.dsNome, C.dtNascimento, H.dsPatologia, C.dtAlocacao, E.dsNomeAluno, F.idFicha   " +
