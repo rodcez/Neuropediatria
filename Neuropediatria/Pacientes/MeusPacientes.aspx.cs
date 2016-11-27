@@ -57,8 +57,8 @@ namespace Neuropediatria.Pacientes
                                             "FROM tb_Ficha as F " +
                                             "RIGHT JOIN tb_Candidato as C on(c.idCandidato = f.idPaciente) " +
                                             "LEFT JOIN tb_Historico as H on(c.idHistorico = h.idHistorico) " +
-                                            "LEFT JOIN tb_Estagio as E on(c.idEstagio = E.idEstagio) " +
-                                            "WHERE isPaciente = {0} AND C.ativo = {1} AND E.idUsuario = {2}", 1, 1, idEstagiarioVS);
+                                            "LEFT JOIN tb_Estagio as E on(F.idEstagio = E.idEstagio) " +
+                                            "WHERE isPaciente = {0} AND F.ativa = {1} AND E.idUsuario = {2}", 1, 1, idEstagiarioVS);
 
                 if (!string.IsNullOrEmpty(ordem))
                     query += "order by " + ordem + " ASC";

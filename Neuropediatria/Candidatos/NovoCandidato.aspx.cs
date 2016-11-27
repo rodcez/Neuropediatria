@@ -126,7 +126,10 @@ namespace Neuropediatria.Candidatos
 
         private void populaEstagiarios()
         {
-            var query = "SELECT idEstagio, dsNomeAluno  FROM tb_Estagio";
+            var query = "SELECT idEstagio, dsNomeAluno " +
+                        "FROM tb_Estagio as E " +
+                        "JOIN tb_Usuario as C on(C.idUsuario = E.idUsuario) " +
+                        "WHERE C.ativo = 1 ";
 
             ddEstagiario.DataSource = ServicosDB.Instancia.ExecutarSelect(query);
             ddEstagiario.DataTextField = "dsNomeAluno";

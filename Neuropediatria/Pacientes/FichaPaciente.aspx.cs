@@ -64,7 +64,8 @@ namespace Neuropediatria.Pacientes
             (Master as Site).mostrarCarregando("Carregando dados...");
 
             int id;
-            int idUsuario = int.Parse(ConfigurationManager.AppSettings["idUsuario"].ToString());
+            var appSet = ConfigurationManager.AppSettings;
+            int idUsuario = int.Parse(appSet["idUsuario"].ToString());
 
             if (!int.TryParse(idFicha, out id))
             {
@@ -75,8 +76,8 @@ namespace Neuropediatria.Pacientes
             idFichaVS = id;
 
 
-            var query = string.Format("SELECT E.dsNomeAluno, E.idRGM, E.dtAvaliacao, E.dtEstagioInicio, E.dtEstagioTermino,  " +
-                                        "C.dsNome, C.dtNascimento, C.idSexo, C.dsResponsavel, C.dsParentesco, C.numTelefone, C.dtAlocacao, " +
+            var query = string.Format("SELECT E.dsNomeAluno, E.idRGM, E.dtAvaliacao, E.dtEstagioInicio, E.dtEstagioTermino, E.idUsuario, " +
+                                        "C.dsNome, C.dtNascimento, C.idSexo, C.dsResponsavel, C.dsParentesco, C.numTelefone, C.dtAlocacao, C.isPaciente, " +
                                         "L.idEndereco, L.numCEP, L.dsCidade, L.dsEstado, L.dsLogradouro, L.numLogradouro, L.dsComplemento, " +
                                         "H.idHistorico, H.dsPatologia, H.dsQueixaPrincipal, H.dsMedicoResponsavel, H.dsDeficitFuncional, H.dsHospitalProcedencia, H.dsTratamentosPrevios, H.dsHistorico, " +
                                         "F.* " +
@@ -86,19 +87,29 @@ namespace Neuropediatria.Pacientes
                                         "LEFT JOIN tb_Endereco as L on(C.idEndereco = L.idEndereco) " +
                                         "LEFT JOIN tb_Historico as H on(C.idHistorico = H.idHistorico) " +
                                         "LEFT JOIN tb_Usuario as U on (E.idUsuario = U.idUsuario) " +
-                                        "WHERE F.idFicha = {0} AND U.idUsuario = {1}", id, idUsuario);
+                                        "WHERE F.idFicha = {0}", id);
 
             SqlDataReader sqlReader = ServicosDB.Instancia.ExecutarSelect(query);
 
             if (sqlReader.Read())
             {
-                int tempId;
+                var validaUsuarioFicha = Utils.Utils.DataToInt(sqlReader["idUsuario"].ToString()) == idUsuario;
+                var coordAdmin = appSet["perfil"].ToString().Equals("admin") || appSet["perfil"].ToString().Equals("coordenador");
+
+
+                if (!validaUsuarioFicha && !coordAdmin)
+                {
+                    (Master as Site).mostrarErro("Ficha não pertence ao usuário logado, contate o administrador do sistema!");
+                    tabelaConteudo.Enabled = false;
+                    return;
+                }
 
                 idFichaVS = Utils.Utils.DataToInt(sqlReader["idFicha"].ToString());
                 idEstagiarioVS = Utils.Utils.DataToInt(sqlReader["idEstagio"].ToString());
                 idCandidatoVS = Utils.Utils.DataToInt(sqlReader["idPaciente"].ToString());
                 idHistoricoVS = Utils.Utils.DataToInt(sqlReader["idHistorico"].ToString());
                 idEnderecoVS = Utils.Utils.DataToInt(sqlReader["idEndereco"].ToString());
+                isPacienteVS = Utils.Utils.DataToBool(sqlReader["isPaciente"].ToString());
 
                 dtAlocacaoVS = sqlReader["dtAlocacao"].ToString();
 
@@ -365,85 +376,92 @@ namespace Neuropediatria.Pacientes
         private void SalvarDadosFicha()
         {
 
+            if(string.IsNullOrWhiteSpace(dsNomeAluno.Text))
+            {
+                (Master as Site).mostrarErro("Ficha não alocada em seu nome, favor contatar o administrador do sistema!");
+                tabelaConteudo.Enabled = false;
+                return;
+            }
+
             Dictionary<string, dynamic> sqlParameters = new Dictionary<string, dynamic>();
 
             sqlParameters.Add("@idFicha", idFichaVS);
             sqlParameters.Add("@idEstagio", idEstagiarioVS);
             sqlParameters.Add("@idPaciente", idCandidatoVS);
-            sqlParameters.Add("@hasADNMP", hasADNMP.Text);
+            sqlParameters.Add("@hasADNMP", Utils.Utils.DataToInt(hasADNMP.Text));
             sqlParameters.Add("@dsMotivoADNMP", dsMotivoADNMP.Text);
-            sqlParameters.Add("@idADNMP", idADNMP.SelectedValue);
-            sqlParameters.Add("@hasOutrasSindromes", hasOutrasSindromes.Text);
+            sqlParameters.Add("@idADNMP", Utils.Utils.DataToInt(idADNMP.SelectedValue));
+            sqlParameters.Add("@hasOutrasSindromes", Utils.Utils.DataToInt(hasOutrasSindromes.Text));
             sqlParameters.Add("@dsQualOutraSindrome", dsQualOutraSindrome.Text);
-            sqlParameters.Add("@hasEncefCronInfantilNaoProgres", hasEncefCronInfantilNaoProgres.Text);
-            sqlParameters.Add("@idClassificacaoTopografica", idClassificacaoTopografica.SelectedValue);
+            sqlParameters.Add("@hasEncefCronInfantilNaoProgres", Utils.Utils.DataToInt(hasEncefCronInfantilNaoProgres.Text));
+            sqlParameters.Add("@idClassificacaoTopografica", Utils.Utils.DataToInt(idClassificacaoTopografica.SelectedValue));
             sqlParameters.Add("@dsclassificacaoClinica", dsclassificacaoClinica.Text);
-            sqlParameters.Add("@idNivel", idNivel.SelectedValue);
-            sqlParameters.Add("@idNivelGMFCS", idNivelGMFCS.SelectedValue);
+            sqlParameters.Add("@idNivel", Utils.Utils.DataToInt(idNivel.SelectedValue));
+            sqlParameters.Add("@idNivelGMFCS", Utils.Utils.DataToInt(idNivelGMFCS.SelectedValue));
             sqlParameters.Add("@dsPatologiasDisturbiosAssoc", dsPatologiasDisturbiosAssoc.Text);
             sqlParameters.Add("@dsMedicamentosEmUso", dsMedicamentosEmUso.Text);
             sqlParameters.Add("@dsExamesComplementares", dsExamesComplementares.Text);
             sqlParameters.Add("@dsProtesesAdaptacoes", dsProtesesAdaptacoes.Text);
             sqlParameters.Add("@dsCaracteristicasSindromicas", dsCaracteristicasSindromicas.Text);
-            sqlParameters.Add("@idAvalDesenvMotorVisao", idAvalDesenvMotorVisao.SelectedValue);
-            sqlParameters.Add("@idAvalDesenvMotorAudicao", idAvalDesenvMotorAudicao.SelectedValue);
-            sqlParameters.Add("@idAvalDesenvMotorLinguagem", idAvalDesenvMotorLinguagem.SelectedValue);
-            sqlParameters.Add("@idAvalDesenvMotorCognitivo", idAvalDesenvMotorCognitivo.SelectedValue);
+            sqlParameters.Add("@idAvalDesenvMotorVisao", Utils.Utils.DataToInt(idAvalDesenvMotorVisao.SelectedValue));
+            sqlParameters.Add("@idAvalDesenvMotorAudicao", Utils.Utils.DataToInt(idAvalDesenvMotorAudicao.SelectedValue));
+            sqlParameters.Add("@idAvalDesenvMotorLinguagem", Utils.Utils.DataToInt(idAvalDesenvMotorLinguagem.SelectedValue));
+            sqlParameters.Add("@idAvalDesenvMotorCognitivo", Utils.Utils.DataToInt(idAvalDesenvMotorCognitivo.SelectedValue));
             sqlParameters.Add("@dsAvalDesenvMotorCognitivoResp", dsAvalDesenvMotorCognitivoResp.Text);
-            sqlParameters.Add("@idReflexosPrimitivos", idReflexosPrimitivos.SelectedValue);
+            sqlParameters.Add("@idReflexosPrimitivos", Utils.Utils.DataToInt(idReflexosPrimitivos.SelectedValue));
             sqlParameters.Add("@dsReflexosPrimitivosQuais", dsReflexosPrimitivosQuais.Text);
-            sqlParameters.Add("@idSupinoSimetria", idSupinoSimetria.SelectedValue);
-            sqlParameters.Add("@idSupinoAlinhamento", idSupinoAlinhamento.SelectedValue);
-            sqlParameters.Add("@idSupinoMovimentacaoAtiva", idSupinoMovimentacaoAtiva.Text);
+            sqlParameters.Add("@idSupinoSimetria", Utils.Utils.DataToInt(idSupinoSimetria.SelectedValue));
+            sqlParameters.Add("@idSupinoAlinhamento", Utils.Utils.DataToInt(idSupinoAlinhamento.SelectedValue));
+            sqlParameters.Add("@idSupinoMovimentacaoAtiva", Utils.Utils.DataToInt(idSupinoMovimentacaoAtiva.Text));
             sqlParameters.Add("@dsSupinoObservacao", dsSupinoObservacao.Text);
-            sqlParameters.Add("@idPronoControleServical", idPronoControleServical.SelectedValue);
-            sqlParameters.Add("@idPronoControleEscapular", idPronoControleEscapular.SelectedValue);
-            sqlParameters.Add("@idPronoSimetria", idPronoSimetria.SelectedValue);
-            sqlParameters.Add("@idPronoAlinhamento", idPronoAlinhamento.SelectedValue);
-            sqlParameters.Add("@idPronoMovimentacaoAtiva", idPronoMovimentacaoAtiva.SelectedValue);
+            sqlParameters.Add("@idPronoControleServical", Utils.Utils.DataToInt(idPronoControleServical.SelectedValue));
+            sqlParameters.Add("@idPronoControleEscapular", Utils.Utils.DataToInt(idPronoControleEscapular.SelectedValue));
+            sqlParameters.Add("@idPronoSimetria", Utils.Utils.DataToInt(idPronoSimetria.SelectedValue));
+            sqlParameters.Add("@idPronoAlinhamento", Utils.Utils.DataToInt(idPronoAlinhamento.SelectedValue));
+            sqlParameters.Add("@idPronoMovimentacaoAtiva", Utils.Utils.DataToInt(idPronoMovimentacaoAtiva.SelectedValue));
             sqlParameters.Add("@dsPronoObservacao", dsPronoObservacao.Text);
-            sqlParameters.Add("@idRolar", idRolar.SelectedValue);
-            sqlParameters.Add("@idRolaDecubito", idRolaDecubito.SelectedValue);
-            sqlParameters.Add("@hasUsoPadraoPatologico", hasUsoPadraoPatologico.Text);
+            sqlParameters.Add("@idRolar", Utils.Utils.DataToInt(idRolar.SelectedValue));
+            sqlParameters.Add("@idRolaDecubito", Utils.Utils.DataToInt(idRolaDecubito.SelectedValue));
+            sqlParameters.Add("@hasUsoPadraoPatologico", Utils.Utils.DataToInt(hasUsoPadraoPatologico.Text));
             sqlParameters.Add("@dsUsoPadraoPatologicoQual", dsUsoPadraoPatologicoQual.Text);
-            sqlParameters.Add("@idRolarDissociacao", idRolarDissociacao.SelectedValue);
-            sqlParameters.Add("@idSentadoControleServical", idSentadoControleServical.SelectedValue);
-            sqlParameters.Add("@idSentadoControleTronco", idSentadoControleTronco.Text);
-            sqlParameters.Add("@idSentadoSimetria", idSentadoSimetria.SelectedValue);
-            sqlParameters.Add("@idSentadoAlinhamento", idSentadoAlinhamento.Text);
-            sqlParameters.Add("@idSentadoMovimentacaoAtiva", idSentadoMovimentacaoAtiva.SelectedValue);
+            sqlParameters.Add("@idRolarDissociacao", Utils.Utils.DataToInt(idRolarDissociacao.SelectedValue));
+            sqlParameters.Add("@idSentadoControleServical", Utils.Utils.DataToInt(idSentadoControleServical.SelectedValue));
+            sqlParameters.Add("@idSentadoControleTronco", Utils.Utils.DataToInt(idSentadoControleTronco.Text));
+            sqlParameters.Add("@idSentadoSimetria", Utils.Utils.DataToInt(idSentadoSimetria.SelectedValue));
+            sqlParameters.Add("@idSentadoAlinhamento", Utils.Utils.DataToInt(idSentadoAlinhamento.Text));
+            sqlParameters.Add("@idSentadoMovimentacaoAtiva", Utils.Utils.DataToInt(idSentadoMovimentacaoAtiva.SelectedValue));
             sqlParameters.Add("@dsSentadoObservacao", dsSentadoObservacao.Text);
             sqlParameters.Add("@dsTrocaPosturalSupinoSentado", dsTrocaPosturalSupinoSentado.Text);
-            sqlParameters.Add("@idSentadoPosturaQuadril", idSentadoPosturaQuadril.SelectedValue);
-            sqlParameters.Add("@idSentadoPosturaQuadrilIncl", idSentadoPosturaQuadrilIncl.SelectedValue);
-            sqlParameters.Add("@idSentadoDeformColuna", idSentadoDeformColuna.SelectedValue);
-            sqlParameters.Add("@idSentadoDeformColunaPres", idSentadoDeformColunaPres.SelectedValue);
-            sqlParameters.Add("@idSentadoDeformQuadril", idSentadoDeformQuadril.SelectedValue);
-            sqlParameters.Add("@idSentadoDeformQuadrilPres", idSentadoDeformQuadrilPres.SelectedValue);
-            sqlParameters.Add("@idEngatinhar", idEngatinhar.SelectedValue);
+            sqlParameters.Add("@idSentadoPosturaQuadril", Utils.Utils.DataToInt(idSentadoPosturaQuadril.SelectedValue));
+            sqlParameters.Add("@idSentadoPosturaQuadrilIncl", Utils.Utils.DataToInt(idSentadoPosturaQuadrilIncl.SelectedValue));
+            sqlParameters.Add("@idSentadoDeformColuna", Utils.Utils.DataToInt(idSentadoDeformColuna.SelectedValue));
+            sqlParameters.Add("@idSentadoDeformColunaPres", Utils.Utils.DataToInt(idSentadoDeformColunaPres.SelectedValue));
+            sqlParameters.Add("@idSentadoDeformQuadril", Utils.Utils.DataToInt(idSentadoDeformQuadril.SelectedValue));
+            sqlParameters.Add("@idSentadoDeformQuadrilPres", Utils.Utils.DataToInt(idSentadoDeformQuadrilPres.SelectedValue));
+            sqlParameters.Add("@idEngatinhar", Utils.Utils.DataToInt(idEngatinhar.SelectedValue));
             sqlParameters.Add("@dsEngatinhar", dsEngatinhar.Text);
-            sqlParameters.Add("@idArrastar", idArrastar.SelectedValue);
+            sqlParameters.Add("@idArrastar", Utils.Utils.DataToInt(idArrastar.SelectedValue));
             sqlParameters.Add("@dsArrastar", dsArrastar.Text);
-            sqlParameters.Add("@idOrtostatismo", idOrtostatismo.SelectedValue);
-            sqlParameters.Add("@idOrtostatismoPosicPes", idOrtostatismoPosicPes.Text);
-            sqlParameters.Add("@idMarcha", idMarcha.SelectedValue);
+            sqlParameters.Add("@idOrtostatismo", Utils.Utils.DataToInt(idOrtostatismo.SelectedValue));
+            sqlParameters.Add("@idOrtostatismoPosicPes", Utils.Utils.DataToInt(idOrtostatismoPosicPes.Text));
+            sqlParameters.Add("@idMarcha", Utils.Utils.DataToInt(idMarcha.SelectedValue));
             sqlParameters.Add("@dsMarcha", dsMarcha.Text);
             sqlParameters.Add("@dsMarchaObservacoes", dsMarchaObservacoes.Text);
-            sqlParameters.Add("@hasHipertoniaElastica", hasHipertoniaElastica.Text);
+            sqlParameters.Add("@hasHipertoniaElastica", Utils.Utils.DataToInt(hasHipertoniaElastica.Text));
             sqlParameters.Add("@dsHipertoniaElastica", dsHipertoniaElastica.Text);
             sqlParameters.Add("@dsHipertElastSinaisClinicos", dsHipertElastSinaisClinicos.Text);
             sqlParameters.Add("@dsHipertElastAsWorth", dsHipertElastAsWorth.Text);
-            sqlParameters.Add("@hasHipertoniaPlastica", hasHipertoniaPlastica.Text);
+            sqlParameters.Add("@hasHipertoniaPlastica", Utils.Utils.DataToInt(hasHipertoniaPlastica.Text));
             sqlParameters.Add("@dsHipertoniaPlasticaLocalizacao", dsHipertoniaPlasticaLocalizacao.Text);
             sqlParameters.Add("@dsHipertPlastSinaisClinicos", dsHipertPlastSinaisClinicos.Text);
-            sqlParameters.Add("@hasDiscinesias", hasDiscinesias.Text);
+            sqlParameters.Add("@hasDiscinesias", Utils.Utils.DataToInt(hasDiscinesias.Text));
             sqlParameters.Add("@dsDiscinesiasQual", dsDiscinesiasQual.Text);
-            sqlParameters.Add("@idMolestiaIncorrencia", idMolestiaIncorrencia.SelectedValue);
+            sqlParameters.Add("@idMolestiaIncorrencia", Utils.Utils.DataToInt(idMolestiaIncorrencia.SelectedValue));
             sqlParameters.Add("@dsDiscinesiasLocalizacao", dsDiscinesiasLocalizacao.Text);
-            sqlParameters.Add("@hasHipotonia", hasHipotonia.Text);
+            sqlParameters.Add("@hasHipotonia", Utils.Utils.DataToInt(hasHipotonia.Text));
             sqlParameters.Add("@dsHipotoniaLocalizacao", dsHipotoniaLocalizacao.Text);
-            sqlParameters.Add("@hasIncoordenacaoMov", hasIncoordenacaoMov.Text);
-            sqlParameters.Add("@idDiscinesias", idDiscinesias.SelectedValue);
+            sqlParameters.Add("@hasIncoordenacaoMov", Utils.Utils.DataToInt(hasIncoordenacaoMov.Text));
+            sqlParameters.Add("@idDiscinesias", Utils.Utils.DataToInt(idDiscinesias.SelectedValue));
             sqlParameters.Add("@dsTonusDinamico", dsTonusDinamico.Text);
             sqlParameters.Add("@dsEncurtamentoMuscDeform", dsEncurtamentoMuscDeform.Text);
             sqlParameters.Add("@dsForcaMuscular", dsForcaMuscular.Text);
@@ -457,13 +475,13 @@ namespace Neuropediatria.Pacientes
             sqlParameters.Add("@dsReacEquilibrioBipede", dsReacEquilibrioBipede.Text);
             sqlParameters.Add("@dsReacProtecaoPostSentada", dsReacProtecaoPostSentada.Text);
             sqlParameters.Add("@dsReacProtecaoBipede", dsReacProtecaoBipede.Text);
-            sqlParameters.Add("@idAtivVidaDiariaAlimentacao", idAtivVidaDiariaAlimentacao.SelectedValue);
+            sqlParameters.Add("@idAtivVidaDiariaAlimentacao", Utils.Utils.DataToInt(idAtivVidaDiariaAlimentacao.SelectedValue));
             sqlParameters.Add("@dsAtivVidaDiariaAlimentacao", dsAtivVidaDiariaAlimentacao.Text);
-            sqlParameters.Add("@idAtivVidaDiariaHigiene", idAtivVidaDiariaHigiene.SelectedValue);
+            sqlParameters.Add("@idAtivVidaDiariaHigiene", Utils.Utils.DataToInt(idAtivVidaDiariaHigiene.SelectedValue));
             sqlParameters.Add("@dsAtivVidaDiariaHigiene", dsAtivVidaDiariaHigiene.Text);
-            sqlParameters.Add("@idAtivVidaDiariaVestuario", idAtivVidaDiariaVestuario.SelectedValue);
+            sqlParameters.Add("@idAtivVidaDiariaVestuario", Utils.Utils.DataToInt(idAtivVidaDiariaVestuario.SelectedValue));
             sqlParameters.Add("@dsAtivVidaDiariaVestuario", dsAtivVidaDiariaVestuario.Text);
-            sqlParameters.Add("@idAtivVidaDiariaLocomocao", idAtivVidaDiariaLocomocao.SelectedValue);
+            sqlParameters.Add("@idAtivVidaDiariaLocomocao", Utils.Utils.DataToInt(idAtivVidaDiariaLocomocao.SelectedValue));
             sqlParameters.Add("@dsAtivVidaDiariaLocomocao", dsAtivVidaDiariaLocomocao.Text);
             sqlParameters.Add("@dsSistemaRespiratorio", dsSistemaRespiratorio.Text);
             sqlParameters.Add("@dsObjetivos", dsObjetivos.Text);

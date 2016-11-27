@@ -23,9 +23,9 @@
 
         <asp:DropDownList ID="ordenaLista" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ordenaLista_SelectedIndexChanged">
             <asp:ListItem Text="Selecione..." Value="" />
-            <asp:ListItem Text="Nome" Value="nome" />
-            <asp:ListItem Text="Idade" Value="idade" />
-            <asp:ListItem Text="Patologia" Value="patologia" />
+            <asp:ListItem Text="Nome" Value="dsNome" />
+            <asp:ListItem Text="Idade" Value="dtNascimento" />
+            <asp:ListItem Text="Patologia" Value="dsPatologia" />
         </asp:DropDownList>
         <br />
         <br />

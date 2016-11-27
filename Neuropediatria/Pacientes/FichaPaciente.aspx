@@ -98,7 +98,7 @@
                         <asp:TableCell Width="80px"> </asp:TableCell>
                         <asp:TableCell>
                             <asp:RadioButtonList ID="dsSexo" runat="server" RepeatDirection="Horizontal" CssClass="separar correcaoDoPrimeiro">
-                                <asp:ListItem Text="M" Value="0" />
+                                <asp:ListItem Text="M" Value="2" />
                                 <asp:ListItem Text="F" Value="1"  />
                             </asp:RadioButtonList>
                         </asp:TableCell>
@@ -336,7 +336,7 @@
                         <asp:TableCell>
                             <asp:Label Text="Encefalopatia Crônica infantil não progressiva: " runat="server"/>
                             <asp:RadioButtonList ID="hasEncefCronInfantilNaoProgres" runat="server" RepeatDirection="Horizontal" CssClass="separar">
-                                <asp:ListItem Text="Sim" Value="0" />
+                                <asp:ListItem Text="Sim" Value="2" />
                                 <asp:ListItem Text="Não" Value="1"/>
                             </asp:RadioButtonList>
                         </asp:TableCell>
@@ -720,8 +720,8 @@
                         </asp:TableCell>
                         <asp:TableCell>
                             <asp:RadioButtonList ID="idRolaDecubito" runat="server" RepeatDirection="Horizontal" CssClass="separar">
-                                <asp:ListItem Text="D" Value="0" />
-                                <asp:ListItem Text="E" Value="1" />
+                                <asp:ListItem Text="D" Value="1" />
+                                <asp:ListItem Text="E" Value="2" />
                             </asp:RadioButtonList>
                         </asp:TableCell>
                     </asp:TableRow>
@@ -738,8 +738,8 @@
                     <asp:TableRow Height="50px">
                         <asp:TableCell>
                             <asp:RadioButtonList ID="idRolarDissociacao" runat="server" RepeatDirection="Horizontal" CssClass="separar correcaoDoPrimeiro">
-                                <asp:ListItem Text="Com dissociação" Value="1" />
-                                <asp:ListItem Text="Sem dissociação" Value="0" />
+                                <asp:ListItem Text="Com dissociação" Value="2" />
+                                <asp:ListItem Text="Sem dissociação" Value="1" />
                             </asp:RadioButtonList>
                         </asp:TableCell>
                     </asp:TableRow>
@@ -846,8 +846,8 @@
                         </asp:TableCell>
                         <asp:TableCell>
                             <asp:RadioButtonList ID="idSentadoPosturaQuadrilIncl" runat="server" RepeatDirection="Horizontal" CssClass="separar">
-                                <asp:ListItem Text="D" Value="0" />
-                                <asp:ListItem Text="E" Value="1" />
+                                <asp:ListItem Text="D" Value="1" />
+                                <asp:ListItem Text="E" Value="2" />
                             </asp:RadioButtonList>
                         </asp:TableCell>
                         <asp:TableCell Width="20px"> </asp:TableCell>
@@ -865,7 +865,7 @@
                         </asp:TableCell>
                         <asp:TableCell>
                             <asp:RadioButtonList ID="idSentadoDeformColunaPres" runat="server" RepeatDirection="Horizontal" CssClass="separar">
-                                <asp:ListItem Text="Postural" Value="0" />
+                                <asp:ListItem Text="Postural" Value="2" />
                                 <asp:ListItem Text="Fixa" Value="1" />
                             </asp:RadioButtonList>
                         </asp:TableCell>
@@ -884,8 +884,8 @@
                         </asp:TableCell>
                         <asp:TableCell>
                             <asp:RadioButtonList ID="idSentadoDeformQuadrilPres" runat="server" RepeatDirection="Horizontal" CssClass="separar">
-                                <asp:ListItem Text="D" Value="0" />
-                                <asp:ListItem Text="E" Value="1" />
+                                <asp:ListItem Text="D" Value="1" />
+                                <asp:ListItem Text="E" Value="2" />
                             </asp:RadioButtonList>
                         </asp:TableCell>
                         <asp:TableCell Width="20px"> </asp:TableCell>
@@ -901,8 +901,8 @@
                     <asp:TableRow Height="50px">
                         <asp:TableCell>
                             <asp:RadioButtonList ID="idEngatinhar" runat="server" RepeatDirection="Horizontal" CssClass="separar">
-                                <asp:ListItem Text="Sim" Value="1" />
-                                <asp:ListItem Text="Não" Value="0" />
+                                <asp:ListItem Text="Sim" Value="2" />
+                                <asp:ListItem Text="Não" Value="1" />
                             </asp:RadioButtonList>
                         </asp:TableCell>
                     </asp:TableRow>
@@ -925,8 +925,8 @@
                     <asp:TableRow Height="50px">
                         <asp:TableCell>
                             <asp:RadioButtonList ID="idArrastar" runat="server" RepeatDirection="Horizontal" CssClass="separar">
-                                <asp:ListItem Text="Sim" Value="1" />
-                                <asp:ListItem Text="Não" Value="0" />
+                                <asp:ListItem Text="Sim" Value="2" />
+                                <asp:ListItem Text="Não" Value="1" />
                             </asp:RadioButtonList>
                         </asp:TableCell>
                     </asp:TableRow>
@@ -974,8 +974,8 @@
                     <asp:TableRow Height="50px">
                         <asp:TableCell>
                             <asp:RadioButtonList ID="idMarcha" runat="server" RepeatDirection="Horizontal" CssClass="separar">
-                                <asp:ListItem Text="Não realiza" Value="0" />
-                                <asp:ListItem Text="Realiza" Value="1" />
+                                <asp:ListItem Text="Realiza" Value="2" />
+                                <asp:ListItem Text="Não realiza" Value="1" />
                             </asp:RadioButtonList>
                         </asp:TableCell>
                     </asp:TableRow>

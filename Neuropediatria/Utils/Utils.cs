@@ -31,12 +31,25 @@ namespace Neuropediatria.Utils
 
         public static bool DataToBool(string value)
         {
+            int tempInt;
+
+            if(int.TryParse(value, out tempInt))
+                return Convert.ToBoolean(tempInt);
+
             return string.IsNullOrWhiteSpace(value) ? false : Convert.ToBoolean(value);
         }
 
         public static int DataToInt(string value)
         {
-            return string.IsNullOrWhiteSpace(value) ? 0 : Convert.ToInt32(value);
+            if (string.IsNullOrWhiteSpace(value))
+                return 0;
+
+            int tempInt;
+
+            if(!int.TryParse(value, out tempInt))
+                return 0;
+
+            return tempInt;
         }
     }
 }
