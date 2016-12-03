@@ -126,6 +126,7 @@ namespace Neuropediatria.Pacientes
                 dsParentesco.Text = sqlReader["dsParentesco"].ToString();
                 numTelefone.Text = sqlReader["numTelefone"].ToString();
                 numCEP.Text = sqlReader["numCEP"].ToString();
+                dsIdade.Text = (Math.Abs((int.Parse(Convert.ToDateTime(dtNascimento.Text).ToString("yyyyMMdd")) - int.Parse(DateTime.Today.ToString("yyyyMMdd"))) / 10000)).ToString();
                 dsCidade.Text = sqlReader["dsCidade"].ToString();
                 dsEstado.Text = sqlReader["dsEstado"].ToString();
                 dsLogradouro.Text = sqlReader["dsLogradouro"].ToString();
@@ -165,6 +166,7 @@ namespace Neuropediatria.Pacientes
                 dsExamesComplementares.Text = sqlReader["dsExamesComplementares"].ToString();
                 dsProtesesAdaptacoes.Text = sqlReader["dsProtesesAdaptacoes"].ToString();
                 dsCaracteristicasSindromicas.Text = sqlReader["dsCaracteristicasSindromicas"].ToString();
+                dsMolestiaIncorrencia.Text = sqlReader["dsMolestiaIncorrencia"].ToString();
 
                 if (!string.IsNullOrEmpty(sqlReader["idAvalDesenvMotorVisao"].ToString()))
                     idAvalDesenvMotorVisao.SelectedValue = sqlReader["idAvalDesenvMotorVisao"].ToString();
@@ -328,14 +330,29 @@ namespace Neuropediatria.Pacientes
 
         protected void btnSalvar_Click(object sender, EventArgs e)
         {
+            var appSet = ConfigurationManager.AppSettings;
+
+            var coordAdmin = appSet["perfil"].ToString().Equals("admin") || appSet["perfil"].ToString().Equals("coordenador");
+
+            if (coordAdmin)
+            {
+                (Master as Site).mostrarErro("Ficha não alocada em seu nome, favor contatar o administrador do sistema!");
+                tabelaConteudo.Enabled = false;
+                return;
+            }
+
             SalvarDadosCandidato();
             SalvarDadosFicha();
-
-
         }
+
         private void SalvarDadosCandidato()
         {
             Dictionary<string, dynamic> sqlParameters = new Dictionary<string, dynamic>();
+
+            string historico = string.Empty;
+
+            if (!string.IsNullOrWhiteSpace(dsHistorico.Text))
+                historico = dsHistoricoAnterior.Text + " - [" + DateTime.Now + "]: " + dsHistorico.Text;
 
             sqlParameters.Add("@idCanditato", idCandidatoVS);
             sqlParameters.Add("@dsNome", dsNome.Text);
@@ -355,7 +372,7 @@ namespace Neuropediatria.Pacientes
             sqlParameters.Add("@dsHospitalProcedencia", dsHospitalProcedencia.Text);
             sqlParameters.Add("@dsTratamentosPrevios", dsTratamentosPrevios.Text);
             sqlParameters.Add("@idIncorrMolestiaAtualProgressa", 0);
-            sqlParameters.Add("@dsHistorico", dsHistorico.Text);
+            sqlParameters.Add("@dsHistorico", historico);
             sqlParameters.Add("@numCEP", numCEP.Text);
             sqlParameters.Add("@dsCidade", dsCidade.Text);
             sqlParameters.Add("@dsEstado", dsEstado.Text);
@@ -372,6 +389,8 @@ namespace Neuropediatria.Pacientes
                 return;
             }
 
+            dsHistoricoAnterior.Text = historico;
+            dsHistorico.Text = string.Empty;
         }
 
         private void SalvarDadosFicha()
@@ -389,10 +408,10 @@ namespace Neuropediatria.Pacientes
             sqlParameters.Add("@idFicha", idFichaVS);
             sqlParameters.Add("@idEstagio", idEstagiarioVS);
             sqlParameters.Add("@idPaciente", idCandidatoVS);
-            sqlParameters.Add("@hasADNMP", Utils.Utils.DataToInt(hasADNMP.Text));
+            sqlParameters.Add("@hasADNMP", hasADNMP.Checked ? 1 : 0);
             sqlParameters.Add("@dsMotivoADNMP", dsMotivoADNMP.Text);
             sqlParameters.Add("@idADNMP", Utils.Utils.DataToInt(idADNMP.SelectedValue));
-            sqlParameters.Add("@hasOutrasSindromes", Utils.Utils.DataToInt(hasOutrasSindromes.Text));
+            sqlParameters.Add("@hasOutrasSindromes", hasOutrasSindromes.Checked ? 1 : 0);
             sqlParameters.Add("@dsQualOutraSindrome", dsQualOutraSindrome.Text);
             sqlParameters.Add("@hasEncefCronInfantilNaoProgres", Utils.Utils.DataToInt(hasEncefCronInfantilNaoProgres.Text));
             sqlParameters.Add("@idClassificacaoTopografica", Utils.Utils.DataToInt(idClassificacaoTopografica.SelectedValue));
@@ -423,7 +442,7 @@ namespace Neuropediatria.Pacientes
             sqlParameters.Add("@dsPronoObservacao", dsPronoObservacao.Text);
             sqlParameters.Add("@idRolar", Utils.Utils.DataToInt(idRolar.SelectedValue));
             sqlParameters.Add("@idRolaDecubito", Utils.Utils.DataToInt(idRolaDecubito.SelectedValue));
-            sqlParameters.Add("@hasUsoPadraoPatologico", Utils.Utils.DataToInt(hasUsoPadraoPatologico.Text));
+            sqlParameters.Add("@hasUsoPadraoPatologico", hasUsoPadraoPatologico.Checked ? 1 : 0);
             sqlParameters.Add("@dsUsoPadraoPatologicoQual", dsUsoPadraoPatologicoQual.Text);
             sqlParameters.Add("@idRolarDissociacao", Utils.Utils.DataToInt(idRolarDissociacao.SelectedValue));
             sqlParameters.Add("@idSentadoControleServical", Utils.Utils.DataToInt(idSentadoControleServical.SelectedValue));
@@ -444,24 +463,24 @@ namespace Neuropediatria.Pacientes
             sqlParameters.Add("@idArrastar", Utils.Utils.DataToInt(idArrastar.SelectedValue));
             sqlParameters.Add("@dsArrastar", dsArrastar.Text);
             sqlParameters.Add("@idOrtostatismo", Utils.Utils.DataToInt(idOrtostatismo.SelectedValue));
-            sqlParameters.Add("@idOrtostatismoPosicPes", Utils.Utils.DataToInt(idOrtostatismoPosicPes.Text));
+            sqlParameters.Add("@idOrtostatismoPosicPes", idOrtostatismoPosicPes.Text);
             sqlParameters.Add("@idMarcha", Utils.Utils.DataToInt(idMarcha.SelectedValue));
             sqlParameters.Add("@dsMarcha", dsMarcha.Text);
             sqlParameters.Add("@dsMarchaObservacoes", dsMarchaObservacoes.Text);
-            sqlParameters.Add("@hasHipertoniaElastica", Utils.Utils.DataToInt(hasHipertoniaElastica.Text));
+            sqlParameters.Add("@hasHipertoniaElastica", hasHipertoniaElastica.Checked ? 1 : 0);
             sqlParameters.Add("@dsHipertoniaElastica", dsHipertoniaElastica.Text);
             sqlParameters.Add("@dsHipertElastSinaisClinicos", dsHipertElastSinaisClinicos.Text);
             sqlParameters.Add("@dsHipertElastAsWorth", dsHipertElastAsWorth.Text);
-            sqlParameters.Add("@hasHipertoniaPlastica", Utils.Utils.DataToInt(hasHipertoniaPlastica.Text));
+            sqlParameters.Add("@hasHipertoniaPlastica", hasHipertoniaPlastica.Checked ? 1 : 0);
             sqlParameters.Add("@dsHipertoniaPlasticaLocalizacao", dsHipertoniaPlasticaLocalizacao.Text);
             sqlParameters.Add("@dsHipertPlastSinaisClinicos", dsHipertPlastSinaisClinicos.Text);
-            sqlParameters.Add("@hasDiscinesias", Utils.Utils.DataToInt(hasDiscinesias.Text));
+            sqlParameters.Add("@hasDiscinesias", hasDiscinesias.Checked ? 1 : 0);
             sqlParameters.Add("@dsDiscinesiasQual", dsDiscinesiasQual.Text);
             sqlParameters.Add("@idMolestiaIncorrencia", Utils.Utils.DataToInt(idMolestiaIncorrencia.SelectedValue));
             sqlParameters.Add("@dsDiscinesiasLocalizacao", dsDiscinesiasLocalizacao.Text);
-            sqlParameters.Add("@hasHipotonia", Utils.Utils.DataToInt(hasHipotonia.Text));
+            sqlParameters.Add("@hasHipotonia", hasHipotonia.Checked ? 1 : 0);
             sqlParameters.Add("@dsHipotoniaLocalizacao", dsHipotoniaLocalizacao.Text);
-            sqlParameters.Add("@hasIncoordenacaoMov", Utils.Utils.DataToInt(hasIncoordenacaoMov.Text));
+            sqlParameters.Add("@hasIncoordenacaoMov", hasIncoordenacaoMov.Checked ? 1 : 0);
             sqlParameters.Add("@idDiscinesias", Utils.Utils.DataToInt(idDiscinesias.SelectedValue));
             sqlParameters.Add("@dsTonusDinamico", dsTonusDinamico.Text);
             sqlParameters.Add("@dsEncurtamentoMuscDeform", dsEncurtamentoMuscDeform.Text);
@@ -487,6 +506,7 @@ namespace Neuropediatria.Pacientes
             sqlParameters.Add("@dsSistemaRespiratorio", dsSistemaRespiratorio.Text);
             sqlParameters.Add("@dsObjetivos", dsObjetivos.Text);
             sqlParameters.Add("@dsEvolucaoPeriodo", dsEvolucaoPeriodo.Text);
+            sqlParameters.Add("@dsMolestiaIncorrencia", dsMolestiaIncorrencia.Text);
 
             var validacao = ServicosDB.Instancia.ExecutarProcedure("InsertOrUpdateFicha", sqlParameters);
 
@@ -517,6 +537,19 @@ namespace Neuropediatria.Pacientes
             {
                 (Master as Site).mostrarErro("CEP Inválido!");
             }
+        }
+        
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            var appSet = ConfigurationManager.AppSettings;
+
+
+            var coordAdmin = appSet["perfil"].ToString().Equals("admin") || appSet["perfil"].ToString().Equals("coordenador");
+
+            if (coordAdmin)
+                Response.Redirect("~/Pacientes/ListaPacientes.aspx");
+
+            Response.Redirect("~/Pacientes/MeusPacientes.aspx");
         }
     }
 }

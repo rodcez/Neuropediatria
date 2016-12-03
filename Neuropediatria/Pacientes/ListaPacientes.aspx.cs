@@ -48,7 +48,7 @@ namespace Neuropediatria.Pacientes
             listaCSV.Clear();
             try
             {
-                var query = "SELECT C.idCandidato, C.dsNome, C.dtNascimento, H.dsPatologia, C.dtAlocacao, E.dsNomeAluno, F.idFicha   " +
+                var query = "SELECT C.idCandidato, C.dsNome, C.dtNascimento, H.dsPatologia, C.dtAlocacao, E.dsNomeAluno, F.idFicha, F.ativa   " +
                             "FROM tb_Ficha as F " +
                             "RIGHT JOIN tb_Candidato as C on(c.idCandidato = f.idPaciente) " +
                             "LEFT JOIN tb_Historico as H on(c.idHistorico = h.idHistorico) " +
@@ -56,7 +56,7 @@ namespace Neuropediatria.Pacientes
                             "WHERE isPaciente = 1 AND C.ativo = 1";
 
                 if (!string.IsNullOrEmpty(ordem))
-                    query += "order by " + ordem + " ASC";
+                    query += "order by ativa DESC, " + ordem + " ASC";
 
                 List<Paciente> listaPaciente = new List<Paciente>();
 
@@ -74,24 +74,16 @@ namespace Neuropediatria.Pacientes
                         dsPatologia = sqlReader["dsPatologia"].ToString(),
                         dtAlocacao = alocacao,
                         dsNomeAluno = sqlReader["dsNomeAluno"].ToString(),
+                        ativo = Convert.ToBoolean(sqlReader["ativa"].ToString())
                     });
                 }
-                
-                var queryFicha = "SELECT idFicha FROM tb_Ficha WHERE ativa = 1";
 
-                SqlDataReader sqlReaderFicha = ServicosDB.Instancia.ExecutarSelect(queryFicha);
-
-                while (sqlReaderFicha.Read())
+                foreach (Paciente p in listaPaciente)
                 {
-                    foreach (Paciente p in listaPaciente)
+                    if (!p.ativo)
                     {
-                        p.ativo = p.idFicha.Equals(sqlReaderFicha["idFicha"].ToString());
-
-                        if(!p.ativo)
-                        {
-                            p.dtAlocacao = string.Empty;
-                            p.dsNomeAluno = string.Empty;
-                        }
+                        p.dtAlocacao = string.Empty;
+                        p.dsNomeAluno = string.Empty;
                     }
                 }
 
@@ -102,6 +94,8 @@ namespace Neuropediatria.Pacientes
                     listaPaciente.Clear();
                     listaPaciente = listaPacienteTemp;
                 }
+                else
+                    visuTodos.Checked = false;
 
                 listaCSV = listaPaciente;
                 gvPacientes.DataSource = listaPaciente;
@@ -152,7 +146,10 @@ namespace Neuropediatria.Pacientes
 
                 idPacienteVS = int.Parse(gvPacientes.DataKeys[index]["idCandidato"].ToString());
 
-                ExcluirPaciente(idPacienteVS);
+                (Master as Site).mostrarCarregando("Deseja realmente excluir o Paciente: <strong>" + gvPacientes.DataKeys[index]["dsNome"].ToString() + "</strong> ?");
+                btnsConfirmar2.Visible = true;
+
+                return;
             }
         }
 
@@ -163,6 +160,8 @@ namespace Neuropediatria.Pacientes
                 (Master as Site).mostrarSucesso("Paciente removido com sucesso!");
             else
                 (Master as Site).mostrarErro("Não foi possível remover o paciente.");
+
+            populaGrid(string.Empty);
 
         }
 
@@ -181,6 +180,19 @@ namespace Neuropediatria.Pacientes
         protected void btnNao_Click(object sender, EventArgs e)
         {
             btnsConfirmar.Visible = false;
+            (Master as Site).ocultarPaineis();
+        }
+
+        protected void btnSim_Click2(object sender, EventArgs e)
+        {
+            btnsConfirmar2.Visible = false;
+            (Master as Site).ocultarPaineis();
+            ExcluirPaciente(idPacienteVS);
+        }
+
+        protected void btnNao_Click2(object sender, EventArgs e)
+        {
+            btnsConfirmar2.Visible = false;
             (Master as Site).ocultarPaineis();
         }
 

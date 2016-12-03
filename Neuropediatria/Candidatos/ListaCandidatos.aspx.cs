@@ -32,6 +32,11 @@ namespace Neuropediatria.Candidatos
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            var appSet = ConfigurationManager.AppSettings;
+            var coordAdmin = appSet["perfil"].ToString().Equals("admin") || appSet["perfil"].ToString().Equals("coordenador");
+
+            btExportar.Visible = coordAdmin;
+
             Validacoes("Candidatos");
             if (IsPostBack) return;
             
@@ -128,6 +133,16 @@ namespace Neuropediatria.Candidatos
 
         private void tranformarCandidato(string idCandidato)
         {
+            var appSet = ConfigurationManager.AppSettings;
+            var coordAdmin = appSet["perfil"].ToString().Equals("admin") || appSet["perfil"].ToString().Equals("coordenador");
+
+            if (!coordAdmin)
+            {
+                (Master as Site).mostrarErro("Você não tem permissão, contate o administrador do sistema.");
+                return;
+            }
+
+
             try
             {
                 var query = string.Format("UPDATE tb_Candidato SET isPaciente = {0} WHERE idCandidato = {1}", 

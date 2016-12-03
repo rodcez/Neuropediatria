@@ -8,6 +8,11 @@
         <asp:Button ID="btnNao" runat="server" CssClass="btn btn-danger" Text="Não" OnClick="btnNao_Click"  />
     </div>
 
+    <div id="btnsConfirmar2" runat="server" visible="false" style="text-align: center;">
+        <asp:Button ID="btnSim2" runat="server" CssClass="btn btn-success" Text="Sim" OnClick="btnSim_Click2"  />
+        <asp:Button ID="btnNao2" runat="server" CssClass="btn btn-danger" Text="Não" OnClick="btnNao_Click2"  />
+    </div>
+
     <br />
     <br />
     <h2 style="text-align: center;">Pacientes</h2>
@@ -25,9 +30,10 @@
 
         <asp:DropDownList ID="ordenaLista" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ordenaLista_SelectedIndexChanged">
             <asp:ListItem Text="Selecione..." Value="" />
-            <asp:ListItem Text="Nome" Value="dsNomeAluno" />
+            <asp:ListItem Text="Paciente" Value="dsNome" />
             <asp:ListItem Text="Idade" Value="dtNascimento" />
             <asp:ListItem Text="Patologia" Value="dsPatologia" />
+            <asp:ListItem Text="Aluno" Value="dsNomeAluno" />
             <asp:ListItem Text="Alocação" Value="dtAlocacao" />
         </asp:DropDownList>
         <br />
@@ -51,7 +57,7 @@
                 <ItemTemplate><%# Math.Abs((int.Parse(Convert.ToDateTime(Eval("dtNascimento").ToString()).ToString("yyyyMMdd")) - int.Parse(DateTime.Today.ToString("yyyyMMdd"))) / 10000) %></ItemTemplate>
             </asp:TemplateField>
             <asp:BoundField HeaderText="Patologia" DataField="dsPatologia" />
-            <asp:BoundField HeaderText="Alocação" DataField="dtAlocacao" DataFormatString="{0:dd/M/yyyy}"/>
+            <asp:BoundField HeaderText="Alocação" DataField="dtAlocacao" DataFormatString="{0:dd/MM/yyyy}"/>
             <asp:BoundField HeaderText="Estagiario" DataField="dsNomeAluno" />                     
             <asp:ButtonField HeaderText="Excluir" CommandName="excluirPaciente" ItemStyle-Width="100px" Text="Excluir" 
                 ControlStyle-CssClass="btn btn-danger"  ItemStyle-HorizontalAlign="Center"/>

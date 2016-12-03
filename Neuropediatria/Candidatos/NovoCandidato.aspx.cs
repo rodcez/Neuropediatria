@@ -153,7 +153,23 @@ namespace Neuropediatria.Candidatos
                 return;
             }
 
-            if(DateTime.Compare(Convert.ToDateTime(dtNascimento.Text), DateTime.Now) > 0)
+            DateTime tempData;
+
+            if(!DateTime.TryParse(dtNascimento.Text, out tempData))
+            {
+                (Master as Site).mostrarErro("Data de nascimento inválida!");
+                return;
+            }
+
+            tempData = new DateTime(1900,01,01);
+
+            if (DateTime.Compare(Convert.ToDateTime(dtNascimento.Text), tempData) < 0)
+            {
+                (Master as Site).mostrarErro("Data de nascimento inválida!");
+                return;
+            }
+
+            if (DateTime.Compare(Convert.ToDateTime(dtNascimento.Text), DateTime.Now) > 0)
             {
                 (Master as Site).mostrarErro("Data de nascimento inválida!");
                 return;
@@ -220,6 +236,13 @@ namespace Neuropediatria.Candidatos
 
         private void AlocarPaciente(int idCandidato, string idEstagiario, DateTime dataAlocacao)
         {
+            if (DateTime.Compare(Convert.ToDateTime(dtAlocacao.Text), DateTime.Now.Date) < 0)
+            {
+                (Master as Site).mostrarErro("Data de alocação inválida!");
+                tabelaConteudo.Enabled = true;
+                return;
+            }
+
             Dictionary<string, dynamic> sqlParameters = new Dictionary<string, dynamic>();
 
             sqlParameters.Add("@idCandidato", idCandidato);
@@ -241,6 +264,15 @@ namespace Neuropediatria.Candidatos
 
             if (isPaciente)
                 Response.Redirect("~/Pacientes/ListaPacientes.aspx");
+
+        }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            if (isPaciente)
+                Response.Redirect("~/Pacientes/ListaPacientes.aspx");
+            else
+                Response.Redirect("~/Candidatos/ListaCandidatos.aspx");
 
         }
     }

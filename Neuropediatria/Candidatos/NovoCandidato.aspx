@@ -119,7 +119,7 @@
                 <asp:Table runat="server" HorizontalAlign="Right">
                     <asp:TableRow>  
                         <asp:TableCell>
-                            <asp:Button runat="server" CssClass="btn btn-danger" Text="Cancelar" />
+                            <asp:Button ID="btnCancelar" runat="server" CssClass="btn btn-danger" Text="Cancelar" OnClick="btnCancelar_Click" />
                         </asp:TableCell>
                         <asp:TableCell Width="20px"> </asp:TableCell>
                         <asp:TableCell>

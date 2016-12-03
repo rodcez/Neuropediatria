@@ -15,7 +15,7 @@
 
     <div class="pull-left">
         <asp:Button ID="maisCandidato" runat="server" Text="+ Candidato" CssClass="btn btn-success" OnClick="maisCandidato_Click" />
-        <asp:Button ID="btExportar" Visible="true" runat="server" CssClass="btn btn-warning" Text="Exportar Lista" OnClick="btExportar_Click" />
+        <asp:Button ID="btExportar" Visible="false" runat="server" CssClass="btn btn-warning" Text="Exportar Lista" OnClick="btExportar_Click"/>
     </div>
 
     <div class="pull-right">

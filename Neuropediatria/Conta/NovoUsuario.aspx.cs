@@ -357,5 +357,10 @@ namespace Neuropediatria.Conta
 
             return reader.HasRows;
         }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Conta/ListaUsuarios.aspx");
+        }
     }
 }

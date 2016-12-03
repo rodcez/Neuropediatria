@@ -92,7 +92,7 @@
                         </asp:TableCell>
                         <asp:TableCell Width="20px"> </asp:TableCell>
                         <asp:TableCell>
-                            <asp:TextBox ID="dsIdade" runat="server" Width="70px" TextMode="Number" />
+                            <asp:TextBox ID="dsIdade" runat="server" Width="70px" TextMode="Number" Enabled="false"/>
                         </asp:TableCell>
                         <asp:TableCell Width="80px"> </asp:TableCell>
                         <asp:TableCell>
@@ -464,7 +464,7 @@
                 <asp:Table runat="server">
                     <asp:TableRow Height="30px">
                         <asp:TableCell>
-                            <asp:Label Text="/Proteses e Adaptações: " runat="server" Font-Bold="true"/>
+                            <asp:Label Text="Proteses e Adaptações: " runat="server" Font-Bold="true"/>
                         </asp:TableCell>
                     </asp:TableRow>
 
@@ -541,7 +541,7 @@
 
                     <asp:TableRow Height="50px" HorizontalAlign="Right">
                         <asp:TableCell>
-                            <asp:TextBox ID="dsAvalDesenvMotorCognitivoResp" runat="server"  Width="230px" />
+                            <asp:TextBox ID="dsAvalDesenvMotorCognitivoResp" runat="server"  Width="230px"/>
                         </asp:TableCell>
                     </asp:TableRow>
                 </asp:Table>
@@ -1417,7 +1417,7 @@
                 <asp:Table runat="server" HorizontalAlign="Right">
                     <asp:TableRow Height="30px">
                         <asp:TableCell>
-                            <asp:Button runat="server" CssClass="btn btn-danger" Text="Cancelar" />
+                            <asp:Button ID="btnCancelar" runat="server" CssClass="btn btn-danger" Text="Cancelar" OnClick="btnCancelar_Click" />
                         </asp:TableCell>
                         <asp:TableCell Width="20px"> </asp:TableCell>
                         <asp:TableCell>

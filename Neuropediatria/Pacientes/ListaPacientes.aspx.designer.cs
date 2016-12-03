@@ -40,6 +40,33 @@ namespace Neuropediatria.Pacientes {
         protected global::System.Web.UI.WebControls.Button btnNao;
         
         /// <summary>
+        /// btnsConfirmar2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl btnsConfirmar2;
+        
+        /// <summary>
+        /// btnSim2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSim2;
+        
+        /// <summary>
+        /// btnNao2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnNao2;
+        
+        /// <summary>
         /// visuTodos control.
         /// </summary>
         /// <remarks>
