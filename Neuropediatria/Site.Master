@@ -21,7 +21,7 @@
         }
 
         .conteudoEspacamento {
-            margin: 0 50px 0 50px;
+            margin: 0 50px 100px 50px;
         }
 
         .conteudoBottom {
@@ -79,13 +79,14 @@
                     <%-- Conteúdo dos módulos --%>
                 </asp:ContentPlaceHolder>
             </div>
+            <footer class="footer">
+                <div class="container">
+                    <img src="../Imagens/logoEmpresa.png" class="pull-right" />
+                    <img src="../Imagens/logoUmc.png" class="pull-left" />
+                </div>
+            </footer>
         </div>
-        <footer class="footer conteudoBottom">
-            <div class="container">
-                <img src="../Imagens/logoEmpresa.png" class="pull-right" />
-                <img src="../Imagens/logoUmc.png" class="pull-left" />
-            </div>
-        </footer>
+
     </form>
 </body>
 </html>
