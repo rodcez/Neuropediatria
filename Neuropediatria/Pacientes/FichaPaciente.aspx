@@ -24,7 +24,6 @@
 
                 <%-- Dados Estagiário --%>
 
-
                 <asp:Table runat="server">
                     <asp:TableRow Height="30px">
                         <asp:TableCell>
@@ -284,13 +283,13 @@
 
                     <asp:TableRow Height="30px">
                         <asp:TableCell>
-                            <asp:TextBox ID="dsHistoricoAnterior" runat="server"  Width="780px" />
+                            <asp:TextBox ID="dsHistoricoAnterior"  runat="server" TextMode="MultiLine" Columns="50" Rows="5" Width="780px" Enabled="false"/>
                         </asp:TableCell>
                     </asp:TableRow>
                     
                     <asp:TableRow Height="30px">
                         <asp:TableCell>
-                            <asp:TextBox ID="dsHistorico" runat="server"  Width="780px" />
+                            <asp:TextBox ID="dsHistorico"  runat="server" TextMode="MultiLine" Columns="50" Rows="5" Width="780px" />
                         </asp:TableCell>
                     </asp:TableRow>
                 </asp:Table>

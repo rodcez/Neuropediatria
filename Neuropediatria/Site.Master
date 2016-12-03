@@ -23,6 +23,12 @@
         .conteudoEspacamento {
             margin: 0 50px 0 50px;
         }
+
+        .conteudoBottom {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
     </style>
 
     <form id="form1" runat="server">
@@ -55,17 +61,17 @@
             <br />
             <asp:Panel ID="panelCarregando" runat="server" Visible="false" HorizontalAlign="Center">
                 <div class="alert alert-warning centralizarDiv" role="alert">
-                    <asp:Label ID="mensagemCarregando" runat="server"/>
+                    <asp:Label ID="mensagemCarregando" runat="server" />
                 </div>
             </asp:Panel>
             <asp:Panel ID="panelErro" runat="server" Visible="false" HorizontalAlign="Center">
                 <div class="alert alert-danger centralizarDiv" role="alert">
-                    <asp:Label ID="mensagemErro" runat="server"/>
+                    <asp:Label ID="mensagemErro" runat="server" />
                 </div>
             </asp:Panel>
             <asp:Panel ID="panelSucesso" runat="server" Visible="false" HorizontalAlign="Center">
                 <div class="alert alert-success centralizarDiv" role="alert">
-                    <asp:Label ID="mensagemSucesso" runat="server"/>
+                    <asp:Label ID="mensagemSucesso" runat="server" />
                 </div>
             </asp:Panel>
             <div class="conteudoEspacamento">
@@ -74,6 +80,12 @@
                 </asp:ContentPlaceHolder>
             </div>
         </div>
+        <footer class="footer conteudoBottom">
+            <div class="container">
+                <img src="../Imagens/logoEmpresa.png" class="pull-right" />
+                <img src="../Imagens/logoUmc.png" class="pull-left" />
+            </div>
+        </footer>
     </form>
 </body>
 </html>

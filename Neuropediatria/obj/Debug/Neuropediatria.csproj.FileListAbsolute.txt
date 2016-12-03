@@ -374,3 +374,8 @@ E:\Faculdade\TCC\Neuropediatria\Neuropediatria\bin\Microsoft.CodeDom.Providers.D
 E:\Faculdade\TCC\Neuropediatria\Neuropediatria\obj\Debug\Neuropediatria.csprojResolveAssemblyReference.cache
 E:\Faculdade\TCC\Neuropediatria\Neuropediatria\obj\Debug\Neuropediatria.dll
 E:\Faculdade\TCC\Neuropediatria\Neuropediatria\obj\Debug\Neuropediatria.pdb
+E:\Faculdade\TCC\Neuropediatria\Neuropediatria\bin\Newtonsoft.Json.dll
+E:\Faculdade\TCC\Neuropediatria\Neuropediatria\bin\Spartacus.dll
+E:\Faculdade\TCC\Neuropediatria\Neuropediatria\bin\Newtonsoft.Json.xml
+E:\Faculdade\TCC\Neuropediatria\Neuropediatria\bin\Correios.dll
+E:\Faculdade\TCC\Neuropediatria\Neuropediatria\bin\Correios.pdb

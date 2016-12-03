@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Correios;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
@@ -136,7 +137,7 @@ namespace Neuropediatria.Pacientes
                 dsDeficitFuncional.Text = sqlReader["dsDeficitFuncional"].ToString();
                 dsHospitalProcedencia.Text = sqlReader["dsHospitalProcedencia"].ToString();
                 dsTratamentosPrevios.Text = sqlReader["dsTratamentosPrevios"].ToString();
-                dsHistorico.Text = sqlReader["dsHistorico"].ToString();
+                dsHistoricoAnterior.Text = sqlReader["dsHistorico"].ToString();
 
                 hasADNMP.Checked = Utils.Utils.DataToBool(sqlReader["hasADNMP"].ToString());
                 dsMotivoADNMP.Text = sqlReader["dsMotivoADNMP"].ToString();
@@ -503,7 +504,19 @@ namespace Neuropediatria.Pacientes
 
         protected void validarCep_Click(object sender, EventArgs e)
         {
+            var service = new CorreiosApi();
+            try
+            {
+                var dados = service.consultaCEP(numCEP.Text);
 
+                dsCidade.Text = dados.cidade;
+                dsEstado.Text = dados.uf;
+                dsLogradouro.Text = dados.end;
+            }
+            catch (Exception)
+            {
+                (Master as Site).mostrarErro("CEP Inválido!");
+            }
         }
     }
 }
